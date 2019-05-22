@@ -1,10 +1,12 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
+// import firebase from 'firebase/app';
+// import 'firebase/firestore';
 
-function App() {
+const App = () => {
   return (
     <div className="App">
-      it works.
-    </div>
+      App works
+		</div>
   );
 }
 
