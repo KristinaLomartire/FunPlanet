@@ -3,6 +3,9 @@ import React, { useState } from 'react';
 // import 'firebase/firestore';
 
 const Logout = () => {
+
+	  
+
 	return (
 		<div className="Logout">
 			Logout works
