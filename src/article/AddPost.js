@@ -1,43 +1,38 @@
-import React, { useState } from 'react';
+import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 
 class AddPost extends React.Component {
 
+
   state = {
     newPost: '',
     newTimeStamp: '',
-    userId: ''
-
+    userId: '',
   }
 
+
   handleChangeNewPost = p => {
-    console.log('körs handleChangeNewPost?');
     this.setState({
       newPost: p.target.value,
     });
   }
 
-  handleClickAdd = p => {
 
-    let obj = {
-      content: this.state.newPost,
-      timestamp: firebase.firestore.FieldValue.serverTimestamp(),
-    };
-    const collectionRef = firebase.firestore().collection('post');
-    collectionRef.add(obj)
-    .then(() => {
-      console.log('added post');
-    })
-    .catch(error => {
-      console.log('some funkey business!');
-    })
+    handleClickAdd = p => {
 
-    this.setState({
-      newPost: '',
-    })
-  }
+      let obj = {
+        content: this.state.newPost,
+        timestamp: firebase.firestore.FieldValue.serverTimestamp(),
+      };
+      const collectionRef = firebase.firestore().collection('post');
+      collectionRef.add(obj)
+
+      this.setState({
+        newPost: '',
+      })
+    }
 
 
 
