@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
+import React from 'react';
 
 import PostListFire from './article/PostListFire'
 
 const App = () => {
   return (
     <div className="App">
-      App works
+      Share
       <PostListFire />
 		</div>
   );
