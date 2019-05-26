@@ -3,10 +3,10 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 const Login = () => {
-	let [user, setUser] = useState(null);
-	let [displayName, setDisplayName] = useState(null);
+	const [user, setUser] = useState(null);
+	const [displayName, setDisplayName] = useState(null);
 
-	// This auto log you in if you been logged in before, so remove for production version
+	// This make you auto loggedin for easier testing, so remove for production version
 	firebase.auth().onAuthStateChanged(user => {
 		if (user) {
 			setUser(user);
@@ -17,26 +17,25 @@ const Login = () => {
 	let loginWithGoogle = () => {
 		// change firebase.auth.Auth.Persistence.LOCAL to NONE for production version
 		firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
-			.then(function () {
-				var provider = new firebase.auth.GoogleAuthProvider();
-				firebase.auth().signInWithPopup(provider).then(function (result) {
+			.then(() => {
+				let provider = new firebase.auth.GoogleAuthProvider();
+				firebase.auth().signInWithPopup(provider).then(result => {
 					if (result.credential) {
 						setUser(firebase.auth().currentUser);
+						setDisplayName(firebase.auth().currentUser.displayName);
 					}
 				});
-			})
-			.catch(function (error) {
-				console.log('Firebase auth error: ', error);
-			});
+			}).catch(error => console.log('Firebase auth error: ', error));
 	};
 
 	let loginWithEmail = () => {
+		console.log('Clicked on loginWithEmail');
 
 	};
 
-	let logout = () => firebase.auth().signOut().then(() => setUser(null)).catch((error) => console.log('Sign-out error: ', error));
+	let logout = () => firebase.auth().signOut().then(() => setUser(null)).catch(error => console.log('Sign-out error: ', error));
 
-	if (user != null) {
+	if (user) {
 		return (
 			<div className="Login">
 				Welcome back {displayName}.
