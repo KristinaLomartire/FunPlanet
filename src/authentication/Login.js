@@ -5,12 +5,14 @@ import 'firebase/auth';
 const Login = () => {
 	const [user, setUser] = useState(null);
 	const [displayName, setDisplayName] = useState(null);
+	const [userID, setUserID] = useState(null);
 
 	// This make you auto loggedin for easier testing, so remove for production version
 	firebase.auth().onAuthStateChanged(user => {
 		if (user) {
 			setUser(user);
 			setDisplayName(user.displayName);
+			setUserID(user.uid)
 		}
 	});
 
@@ -23,6 +25,7 @@ const Login = () => {
 					if (result.credential) {
 						setUser(firebase.auth().currentUser);
 						setDisplayName(firebase.auth().currentUser.displayName);
+						setUserID(firebase.auth().currentUser.uid)
 					}
 				});
 			}).catch(error => console.log('Firebase auth error: ', error));
@@ -36,6 +39,8 @@ const Login = () => {
 	let logout = () => firebase.auth().signOut().then(() => setUser(null)).catch(error => console.log('Sign-out error: ', error));
 
 	if (user) {
+		//console.log(user.displayName + ' with id: ' + userID);
+		
 		return (
 			<div className="Login">
 				Welcome back {displayName}.
