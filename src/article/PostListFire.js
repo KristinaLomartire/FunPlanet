@@ -12,7 +12,7 @@ const PostListFire = () => {
   useEffect(() => {
     const db = firebase.firestore();
     const postCollection = db.collection('post');
-    postCollection.onSnapshot(snapshot => {
+    let unsubscribe = postCollection.onSnapshot(snapshot => {
       let list = [];
       snapshot.forEach(doc => {
         let obj = {
@@ -21,10 +21,12 @@ const PostListFire = () => {
         };
         list.push(obj);
       })
+      console.log('PostListFire: new list =', list);
       setPostData(list);
+      console.log('PostListFire done');
     })
 
-
+    return unsubscribe;
   }, [])
 
   return (

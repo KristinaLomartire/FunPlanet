@@ -9,9 +9,12 @@ const PostListItem = ({post}) => {
     firebase.firestore().collection('post').doc(post.id).delete()
 
   }
-
+  console.log('postListItem', post);
   let maybePost = post.content;
-  let maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
+  let maybeTimestamp = 'Waiting for server...';
+  if( post.timestamp ) {
+     maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
+  }
   let deleteButton = (
     <span role="img" aria-label="delete" onClick={deletePost}>🗑️</span>
   )
