@@ -21,9 +21,8 @@ const PostListFire = () => {
         };
         list.push(obj);
       })
-      console.log('PostListFire: new list =', list);
       setPostData(list);
-      console.log('PostListFire done');
+
     })
 
     return unsubscribe;

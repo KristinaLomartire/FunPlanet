@@ -9,7 +9,7 @@ const PostListItem = ({post}) => {
     firebase.firestore().collection('post').doc(post.id).delete()
 
   }
-  console.log('postListItem', post);
+  
   let maybePost = post.content;
   let maybeTimestamp = 'Waiting for server...';
   if( post.timestamp ) {
