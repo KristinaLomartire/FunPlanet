@@ -24,7 +24,7 @@ const PostListFire = props => {
         list.push(obj);
       })
       setPostData(list);
-
+      console.log();
     })
 
     return unsubscribe;
