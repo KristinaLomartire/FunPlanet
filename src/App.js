@@ -55,7 +55,7 @@ const App = () => {
 				<br />
 				<button onClick={loginWithGoogle}>Login with google.</button>
 				<br />
-				<button onClick={loginWithEmail}>Login with email</button>
+				<button onClick={loginWithEmail}><strike>Login with email</strike></button>
 			</div>
 		);
 	}
