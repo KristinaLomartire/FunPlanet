@@ -5,6 +5,8 @@ import 'firebase/firestore';
 
 const PostListItem = ({post}) => {
 
+  
+
   const deletePost = () => {
     firebase.firestore().collection('post').doc(post.id).delete()
 

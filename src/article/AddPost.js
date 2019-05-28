@@ -59,7 +59,8 @@ class AddPost extends React.Component {
               onChange={this.handleChangeNewPost}
               placeholder="Skriv ett inlägg" />
         <input type="text" value={this.state.newTag}
-                onChange={this.handleChangeNewTag}/>
+                onChange={this.handleChangeNewTag}
+                placeholder="Skriv dina taggar"/>
         <button onClick={this.handleClickAdd}> Posta </button>
 
       </div>
