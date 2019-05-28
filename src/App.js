@@ -50,7 +50,7 @@ const App = () => {
 						<Route path="/"
 							render={(props) => <PostListFire {...props}
 							userID={userID}
-							setDisplayName={setDisplayName}/>
+							displayName={displayName}/>
 						} exact/>
 						<Route path="/temp/" component={Temp} />
 					</div>
