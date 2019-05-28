@@ -47,7 +47,11 @@ const App = () => {
 					<Menu logout={logout} displayName={displayName} />
 					<div className="MainDisplayArea">
 						{/* This is where the component will be rendered. */}
-						<Route path="/" render={(props) => <PostListFire {...props} userID={userID}/>} exact/>
+						<Route path="/"
+							render={(props) => <PostListFire {...props}
+							userID={userID}
+							displayName={displayName}/>
+						} exact/>
 						<Route path="/temp/" component={Temp} />
 					</div>
 				</main>
