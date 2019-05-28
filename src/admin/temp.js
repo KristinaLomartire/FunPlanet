@@ -1,9 +1,9 @@
 import React from 'react';
 
-const Temp = () => {
+const Temp = () => {	
 	return (
 		<div className="Temp">
-			Temp works
+			Temp admin works<br/>
 		</div>
 	);
 }
