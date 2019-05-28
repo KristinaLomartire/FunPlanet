@@ -5,14 +5,16 @@ import 'firebase/firestore';
 import PostList from './PostList';
 import AddPost from './AddPost';
 
-const PostListFire = () => {
+const PostListFire = props => {
 
   const [postData, setPostData] = useState(null);
 
   useEffect(() => {
     const db = firebase.firestore();
-    const postCollection = db.collection('post');
+    const postCollection = db.collection('post').orderBy('timestamp', 'desc').limit(20);
+
     let unsubscribe = postCollection.onSnapshot(snapshot => {
+
       let list = [];
       snapshot.forEach(doc => {
         let obj = {
@@ -31,7 +33,7 @@ const PostListFire = () => {
   return (
     <div>
     <PostList list={postData} />
-    <AddPost />
+    <AddPost userID={props.userID}/>
     </div>
   )
 }
