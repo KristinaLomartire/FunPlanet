@@ -12,20 +12,40 @@ const PostListItem = ({post}) => {
   let maybePost = post.content;
   let maybeTimestamp = 'Waiting for server...';
   let maybeName = post.createdBy;
+  let maybeTag = post.tags;
 
   if( post.timestamp ) {
      maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
   }
   let deleteButton = (
-    <span role="img" aria-label="delete" onClick={deletePost}>🗑️</span>
+    <span className="delete" role="img" aria-label="delete" onClick={deletePost}>🗑️</span>
   )
 
   return (
     <li className="postListItem">
-      {maybePost} <br />
-      {maybeName} <br />
-      {maybeTimestamp} <br />
-      {deleteButton}
+      <p className="post">
+        {maybePost}
+      </p>
+
+      <p className="information">
+        <p>
+          <span className="userName">
+          By {maybeName}
+          </span>
+          <span className="time">
+            {maybeTimestamp}
+          </span>
+        </p>
+
+        <p className="tags">
+            Tags: <br />
+            {maybeTag}
+        </p>
+
+        <p>
+          {deleteButton}
+        </p>
+      </p>
     </li>
   )
 

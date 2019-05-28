@@ -26,8 +26,30 @@ nav ul li {
 	margin: 0;
 	padding: 15px 15px 10px 0;
 }
+.postList {
+	list-style: none;
+	margin: 1em 0;
+}
+.postListItem .post {
+	display: block;
+	margin: 0;
+	padding: 0;
+}
+.postListItem .information {
+	display: flex;
+	align-items: center;
+	justify-content: space-between;
+	margin: 0;
+	padding: 0;
+}
+.postListItem .information>* {
+	border: 1px solid #000;
+}
 
-.postListItem span:hover {
+.postListItem .information .userName {
+	display: block;
+}
+.postListItem .information .delete {
 	cursor: pointer;
 }
 
