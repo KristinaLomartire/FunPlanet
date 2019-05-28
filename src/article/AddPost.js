@@ -17,7 +17,6 @@ class AddPost extends React.Component {
 
     }
     console.log(this.state);
-    console.log('kommer från parent', props);
   }
 
 
