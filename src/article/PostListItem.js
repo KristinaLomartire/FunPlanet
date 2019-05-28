@@ -9,9 +9,10 @@ const PostListItem = ({post}) => {
     firebase.firestore().collection('post').doc(post.id).delete()
 
   }
-
   let maybePost = post.content;
   let maybeTimestamp = 'Waiting for server...';
+  let maybeName = post.createdBy;
+
   if( post.timestamp ) {
      maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
   }
@@ -22,6 +23,7 @@ const PostListItem = ({post}) => {
   return (
     <li className="postListItem">
       {maybePost} <br />
+      {maybeName} <br />
       {maybeTimestamp} <br />
       {deleteButton}
     </li>

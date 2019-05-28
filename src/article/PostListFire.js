@@ -33,7 +33,7 @@ const PostListFire = props => {
   return (
     <div>
     <PostList list={postData} />
-    <AddPost userID={props.userID}/>
+    <AddPost userID={props.userID} displayName={props.displayName}/>
     </div>
   )
 }

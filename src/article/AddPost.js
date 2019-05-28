@@ -11,11 +11,13 @@ class AddPost extends React.Component {
       this.state = {
         newPost: '',
         newTimeStamp: '',
-        userID: this.props.userID,
         tags: '',
-        userName: ''
+        userID: this.props.userID,
+        displayName: this.props.displayName
 
     }
+    console.log(this.state);
+    console.log('kommer från parent', props);
   }
 
 
@@ -38,7 +40,7 @@ class AddPost extends React.Component {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         tags: tagArray,
         createdBy: this.state.displayName,
-        createdByUIID: this.state.userID
+        createdByUID: this.state.userID
       };
       const collectionRef = firebase.firestore().collection('post');
       collectionRef.add(obj)
