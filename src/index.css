@@ -1,30 +1,52 @@
 body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen",
-    "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue",
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
+	font-size: 16px;
 }
 
 .App {
-  margin: 0 auto;
-  max-width: 640px;
+	margin: 0 auto;
+	max-width: 640px;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
-    monospace;
+	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
 
 nav ul {
-  list-style: none;
-  display: flex;
-  margin: 0;
-  padding: 0;
+	list-style: none;
+	display: flex;
+	margin: 0;
+	padding: 0;
 }
 
 nav ul li {
-  margin: 0;
-  padding: 15px 15px 10px 0;
+	margin: 0;
+	padding: 15px 15px 10px 0;
+}
+
+.postListItem span:hover {
+	cursor: pointer;
+}
+
+.addPost textarea, .addPost input, .addPost button  {
+	display: block;
+	width: 100%;
+	border: 1px solid #000;
+	border-radius: 5px;
+	margin: 0.5em 0;
+	padding: 1em;
+}
+.addPost textarea {
+	width: calc(100% - 0.25em);
+	height: 5em;
+}
+.addPost input {
+	height: 1.5em;
+}
+.addPost button {
+	display: inline-block;
+	width: 50%;
 }
