@@ -22,7 +22,7 @@ const PostListFire = () => {
         list.push(obj);
       })
       setPostData(list);
-
+      console.log();
     })
 
     return unsubscribe;

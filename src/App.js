@@ -4,6 +4,7 @@ import React from 'react';
 
 import PostListFire from './article/PostListFire'
 import Login from './authentication/Login'
+import SingleArticleFire from './singleArticle/SingleArticleFire'
 
 const App = () => {
   return (
@@ -12,6 +13,7 @@ const App = () => {
       <PostListFire />
       <hr />
       <Login />
+      <SingleArticleFire />
 		</div>
   );
 }
