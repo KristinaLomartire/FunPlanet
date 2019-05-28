@@ -28,23 +28,21 @@ const PostListItem = ({post}) => {
       </p>
 
       <p className="information">
-        <p>
+        <span>
           <span className="userName">
           By {maybeName}
           </span>
           <span className="time">
             {maybeTimestamp}
           </span>
-        </p>
+        </span>
 
-        <p className="tags">
+        <span className="tags">
             Tags: <br />
             {maybeTag}
-        </p>
+        </span>
 
-        <p>
-          {deleteButton}
-        </p>
+        {deleteButton}
       </p>
     </li>
   )
