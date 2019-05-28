@@ -9,18 +9,9 @@ import Temp from './admin/temp'
 
 const App = () => {
 	const [user, setUser] = useState(null);
-	const [displayName, setDisplayName] = useState(null);
-	const [userID, setUserID] = useState(null);
 
 	// This make you auto loggedin for easier testing, so remove for production version
-	firebase.auth().onAuthStateChanged(user => {
-		if (user) {
-			setUser(user);
-			setDisplayName(user.displayName);
-			setUserID(user.uid)
-			console.log('Current userID: ', userID);
-		}
-	});
+	firebase.auth().onAuthStateChanged(user => (user) ? setUser(user) : setUser(null));
 
 	const loginWithGoogle = () => {
 		// change firebase.auth.Auth.Persistence.LOCAL to NONE for production version
@@ -44,13 +35,13 @@ const App = () => {
 		return (
 			<Router>
 				<main className="App">
-					<Menu logout={logout} displayName={displayName} />
+					<Menu logout={logout} displayName={user.displayName} />
 					<div className="MainDisplayArea">
 						{/* This is where the component will be rendered. */}
 						<Route path="/"
 							render={(props) => <PostListFire {...props}
-							userID={userID}
-							displayName={displayName}/>
+							userID={user.uid}
+							displayName={user.displayName}/>
 						} exact/>
 						<Route path="/temp/" component={Temp} />
 					</div>
