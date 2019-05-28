@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import PostListFire from './article/PostListFire'
+import AddPost from './article/AddPost'
 import Temp from './admin/temp'
 
 const App = () => {
@@ -43,6 +44,11 @@ const App = () => {
 							userID={user.uid}
 							displayName={user.displayName}/>
 						} exact/>
+						<Route path="/addpost/"
+							render={(props) => <AddPost {...props}
+							userID={user.uid}
+							displayName={user.displayName}/>
+						} />
 						<Route path="/temp/" component={Temp} />
 					</div>
 				</main>
@@ -55,7 +61,7 @@ const App = () => {
 				<br />
 				<button onClick={loginWithGoogle}>Login with google.</button>
 				<br />
-				<button onClick={loginWithEmail}>Login with email</button>
+				<button onClick={loginWithEmail}><strike>Login with email</strike></button>
 			</div>
 		);
 	}
