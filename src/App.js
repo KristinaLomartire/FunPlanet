@@ -5,9 +5,18 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import PostListFire from './article/PostListFire'
+<<<<<<< HEAD
 import SingleArticleFire from './singleArticle/SingleArticleFire'
 import AddPost from './article/AddPost'
+=======
+
+import SingleArticleFire from './singleArticle/SingleArticleFire'
+
+import AddPost from './article/AddPost'
+
+>>>>>>> 1db355592b167be6af35fb2dd33b2f588c6a9f62
 import Temp from './admin/temp'
+import TagCloudFire from './tagCloud/tagCloudFire'
 
 const App = () => {
 	const [user, setUser] = useState(null);
@@ -52,6 +61,7 @@ const App = () => {
 							displayName={user.displayName}/>
 						} />
 						<Route path="/temp/" component={Temp} />
+						<Route path="/search/" component={TagCloudFire} />
 					</div>
                     <SingleArticleFire articleId="cU2EF9puG59oeedjB2nC" />
 				</main>

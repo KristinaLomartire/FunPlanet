@@ -15,13 +15,17 @@ const Menu = ({logout, displayName}) => {
 					<Link to="/addpost/">Add new Post</Link>
 				</li>
 				<li>
-					{displayName}<br />
+					<Link to="/search/">Find post</Link>
+				</li>
+				<li>
+					Welcome back {displayName}
+				</li>
+				<li>
 					<button onClick={logout}>Logout</button>
 				</li>
 			</ul>
 		</nav>
 	);
 }
-  
+
 export default Menu;
-  
