@@ -5,23 +5,19 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import PostListFire from './article/PostListFire'
+<<<<<<< HEAD
 import SingleArticleFire from './singleArticle/SingleArticleFire'
+=======
+import AddPost from './article/AddPost'
+>>>>>>> 25786d7007ea77ef735639813621df9ba3dbe821
 import Temp from './admin/temp'
 
 const App = () => {
 	const [user, setUser] = useState(null);
-	const [displayName, setDisplayName] = useState(null);
-	const [userID, setUserID] = useState(null);
+	//const [userLevel, setUserLevel] = useState(null);
 
 	// This make you auto loggedin for easier testing, so remove for production version
-	firebase.auth().onAuthStateChanged(user => {
-		if (user) {
-			setUser(user);
-			setDisplayName(user.displayName);
-			setUserID(user.uid)
-			console.log('Current userID: ', userID);
-		}
-	});
+	firebase.auth().onAuthStateChanged(user => (user) ? setUser(user) : setUser(null));
 
 	const loginWithGoogle = () => {
 		// change firebase.auth.Auth.Persistence.LOCAL to NONE for production version
@@ -45,14 +41,19 @@ const App = () => {
 		return (
 			<Router>
 				<main className="App">
-					<Menu logout={logout} displayName={displayName} />
+					<Menu logout={logout} displayName={user.displayName} />
 					<div className="MainDisplayArea">
 						{/* This is where the component will be rendered. */}
 						<Route path="/"
 							render={(props) => <PostListFire {...props}
-							userID={userID}
-							displayName={displayName}/>
+							userID={user.uid}
+							/>
 						} exact/>
+						<Route path="/addpost/"
+							render={(props) => <AddPost {...props}
+							userID={user.uid}
+							displayName={user.displayName}/>
+						} />
 						<Route path="/temp/" component={Temp} />
 					</div>
                     <SingleArticleFire articleId="DdArkzdmu8Mbc8q3FBb1" />
@@ -66,7 +67,7 @@ const App = () => {
 				<br />
 				<button onClick={loginWithGoogle}>Login with google.</button>
 				<br />
-				<button onClick={loginWithEmail}>Login with email</button>
+				<button onClick={loginWithEmail}><strike>Login with email</strike></button>
 			</div>
 		);
 	}

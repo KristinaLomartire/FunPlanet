@@ -12,9 +12,10 @@ const Menu = ({logout, displayName}) => {
 					<Link to="/temp/">Temp</Link>
 				</li>
 				<li>
-					Welcome back {displayName}
+					<Link to="/addpost/">Add new Post</Link>
 				</li>
 				<li>
+					{displayName}<br />
 					<button onClick={logout}>Logout</button>
 				</li>
 			</ul>

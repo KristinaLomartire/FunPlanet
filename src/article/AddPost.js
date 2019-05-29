@@ -11,11 +11,12 @@ class AddPost extends React.Component {
       this.state = {
         newPost: '',
         newTimeStamp: '',
-        userID: this.props.userID,
         tags: '',
-        userName: ''
+        userID: this.props.userID,
+        displayName: this.props.displayName
 
     }
+    console.log(this.state);
   }
 
 
@@ -38,7 +39,7 @@ class AddPost extends React.Component {
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),
         tags: tagArray,
         createdBy: this.state.displayName,
-        createdByUIID: this.state.userID
+        createdByUID: this.state.userID
       };
       const collectionRef = firebase.firestore().collection('post');
       collectionRef.add(obj)
@@ -58,7 +59,8 @@ class AddPost extends React.Component {
               onChange={this.handleChangeNewPost}
               placeholder="Skriv ett inlägg" />
         <input type="text" value={this.state.newTag}
-                onChange={this.handleChangeNewTag}/>
+                onChange={this.handleChangeNewTag}
+                placeholder="Skriv dina taggar"/>
         <button onClick={this.handleClickAdd}> Posta </button>
 
       </div>

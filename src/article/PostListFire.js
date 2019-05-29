@@ -3,7 +3,6 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import PostList from './PostList';
-import AddPost from './AddPost';
 
 const PostListFire = props => {
 
@@ -24,7 +23,7 @@ const PostListFire = props => {
         list.push(obj);
       })
       setPostData(list);
-      console.log();
+    
     })
 
     return unsubscribe;
@@ -32,8 +31,7 @@ const PostListFire = props => {
 
   return (
     <div>
-    <PostList list={postData} />
-    <AddPost userID={props.userID}/>
+    <PostList list={postData} userID={props.userID} />
     </div>
   )
 }
