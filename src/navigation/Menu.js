@@ -18,6 +18,9 @@ const Menu = ({logout, displayName}) => {
 					<Link to="/search/">Find post</Link>
 				</li>
 				<li>
+					<Link to="/article/">SingleArticleFire</Link>
+				</li>
+				<li>
 					Welcome back {displayName}
 				</li>
 				<li>

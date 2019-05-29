@@ -1,15 +1,13 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Menu from './navigation/Menu';
-import PostListFire from './article/PostListFire'
-
 import SingleArticleFire from './singleArticle/SingleArticleFire'
-
+import SingleArticleComment from './singleArticle/singleArticleComment'
+import PostListFire from './article/PostListFire'
 import AddPost from './article/AddPost'
-
 import Temp from './admin/temp'
 import TagCloudFire from './tagCloud/tagCloudFire'
 
@@ -45,20 +43,31 @@ const App = () => {
 					<Menu logout={logout} displayName={user.displayName} />
 					<div className="MainDisplayArea">
 						{/* This is where the component will be rendered. */}
-						<Route path="/"
-							render={(props) => <PostListFire {...props}
-							userID={user.uid}
+						<Switch>
+							<Route path="/"
+								render={(props) => <PostListFire {...props}
+								userID={user.uid}
+								/>
+							} exact/>
+							<Route path="/addpost/"
+								render={(props) => <AddPost {...props}
+								userID={user.uid}
+								displayName={user.displayName}/>
+							} />
+							<Route
+								path="/temp/:magicURL"
+								component={Temp}
 							/>
-						} exact/>
-						<Route path="/addpost/"
-							render={(props) => <AddPost {...props}
-							userID={user.uid}
-							displayName={user.displayName}/>
-						} />
-						<Route path="/temp/" component={Temp} />
-						<Route path="/search/" component={TagCloudFire} />
+							<Route
+								path="/search/:magicURL"
+								component={TagCloudFire}
+							/>
+							<Route
+								path="/article/:magicURL"
+								component={SingleArticleFire}
+							/>
+						</Switch>
 					</div>
-                    <SingleArticleFire articleId="DdArkzdmu8Mbc8q3FBb1" />
 				</main>
 			</Router>
 		);
