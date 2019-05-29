@@ -5,12 +5,17 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import PostListFire from './article/PostListFire'
+
+import SingleArticleFire from './singleArticle/SingleArticleFire'
+
 import AddPost from './article/AddPost'
+
 import Temp from './admin/temp'
 import TagCloudFire from './tagCloud/tagCloudFire'
 
 const App = () => {
 	const [user, setUser] = useState(null);
+	//const [userLevel, setUserLevel] = useState(null);
 
 	// This make you auto loggedin for easier testing, so remove for production version
 	firebase.auth().onAuthStateChanged(user => (user) ? setUser(user) : setUser(null));
@@ -43,7 +48,7 @@ const App = () => {
 						<Route path="/"
 							render={(props) => <PostListFire {...props}
 							userID={user.uid}
-							displayName={user.displayName}/>
+							/>
 						} exact/>
 						<Route path="/addpost/"
 							render={(props) => <AddPost {...props}
@@ -53,6 +58,7 @@ const App = () => {
 						<Route path="/temp/" component={Temp} />
 						<Route path="/search/" component={TagCloudFire} />
 					</div>
+                    <SingleArticleFire articleId="DdArkzdmu8Mbc8q3FBb1" />
 				</main>
 			</Router>
 		);

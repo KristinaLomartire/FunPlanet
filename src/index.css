@@ -16,15 +16,23 @@ code {
 }
 
 nav ul {
+	width: 100%;
 	list-style: none;
 	display: flex;
 	margin: 0;
 	padding: 0;
+	align-items: stretch;
+	justify-content: space-between;
 }
+
 
 nav ul li {
 	margin: 0;
 	padding: 15px 15px 10px 0;
+}
+nav ul li:last-child {
+	text-align: right;
+	padding: 15px 0 10px 0;
 }
 .postList {
 	list-style: none;
@@ -32,8 +40,9 @@ nav ul li {
 }
 .postListItem .post {
 	display: block;
-	margin: 0;
-	padding: 0;
+	margin: 1em 0 0.5em 0;
+	padding: 1em 0;
+	border-bottom: 1px solid rgb(110, 110, 110);
 }
 .postListItem .information {
 	display: flex;
@@ -41,9 +50,6 @@ nav ul li {
 	justify-content: space-between;
 	margin: 0;
 	padding: 0;
-}
-.postListItem .information>* {
-	border: 1px solid #000;
 }
 
 .postListItem .information .userName {
