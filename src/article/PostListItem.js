@@ -1,12 +1,12 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import { Link } from "react-router-dom";
 
-
-const PostListItem = ({post, userID}) => {
+const PostListItem = ({post, userID,}) => {
   console.log(userID);
-  
-  
+
+
 
   const deletePost = () => {
     firebase.firestore().collection('post').doc(post.id).delete()
@@ -15,7 +15,9 @@ const PostListItem = ({post, userID}) => {
   let maybePost = post.content;
   let maybeTimestamp = 'Waiting for server...';
   let maybeName = post.createdBy;
-  let maybeTag = post.tags;
+  let maybeTag = post.tags.map(tag => (
+    <Link to="/search/{tag}">{tag}, </Link>
+  ));
 
   if( post.timestamp ) {
      maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
