@@ -1,38 +1,47 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-const SingleArticleFire = () => {
-
-    const [commentData, setCommentData, voteData, setVoteData] = useState(null);
-
-    const db = firebase.firestore();
-    let singleArticleCollection = db.collection('comment');
-    // let collectionOfData = []; 
-    // snapshot.forEach(doc =>{
-    //     let obj = {
-    //         ...doc.data(),
-    //         id: doc.id
-    //     };
-    //     collectionOfData.push(obj);
-
-    // })
+const SingleArticleFire = props => {
+    // wee need props: (user id) and article id
+    const articleId = props.articleId;
+    const [article, setArticle] = useState(null);
+    //const [commentData, setCommentData] = useState(null);
+    //const [voteData, setVoteData] = useState(null);
     
-    const whenDone = snapshot => {
-        console.log('we are there', singleArticleCollection)
-    }
+    useEffect (() => {
+        const db = firebase.firestore();
+        let articleCollection = db.collection('post');
 
-    const onError = () => {
-        console.log('Nae du');
-    }
-    
-    singleArticleCollection.get().then(whenDone).catch(onError)
+        const whenDone = doc => {
+            console.log('we are there', doc);
+            // här ska vi göra något med datan som kommer från databasen
+            setArticle(doc.id())
+        }
+        
+        const onError = () => {
+            console.log('Nae du');
+        }
+                
+        articleCollection.doc(articleId)
+        .get().then(whenDone).catch(onError)
+
+    }, [articleId]);
 
     return (
-        
-        <div> detta funkar </div>
+        <SingleArticle article={article}  />
     )
-    
+
+}
+const SingleArticle = ({ article }) => {
+    return (
+        <div>
+            <h1>{article}</h1>
+            article.content
+            TODO
+            visa en specifik post/article
+        </div>
+    )
 }
 
 export default SingleArticleFire;

@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import PostListFire from './article/PostListFire'
+import SingleArticleFire from './singleArticle/SingleArticleFire'
 import Temp from './admin/temp'
 
 const App = () => {
@@ -54,6 +55,7 @@ const App = () => {
 						} exact/>
 						<Route path="/temp/" component={Temp} />
 					</div>
+                    <SingleArticleFire articleId="DdArkzdmu8Mbc8q3FBb1" />
 				</main>
 			</Router>
 		);
