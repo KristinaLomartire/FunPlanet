@@ -15,12 +15,12 @@ const SingleArticleFire = props => {
 
         const whenDone = doc => {
             if (doc.exists) {
-                console.log('this is what we got from firebaseDB', articleId);
+                // console.log('this is what we got from firebaseDB', articleId);
                 // här ska vi göra något med datan som kommer från databasen
-                setArticle(doc.data());
+                setArticle({...doc.data(), id: doc.id});
 
             } else
-                console.log('Nae du');
+                console.log('Något gick fel med hämtningen från DB');
                 
         }
             
@@ -29,7 +29,7 @@ const SingleArticleFire = props => {
     }, [articleId]);
 
     if( article != null ) {
-        console.log('Detta är den unika artikeln som hämtas ut från ett just nu hårdkodat artID i App.js',"'",article.content,"'");
+        // console.log('Detta är den unika artikeln som hämtas ut från ett just nu hårdkodat artID i App.js',"'",article.content,"'");
         return (
             <SingleArticle article={article}  />
         )
@@ -42,9 +42,8 @@ const SingleArticleFire = props => {
 const SingleArticle = ({ article }) => {
     return (
         <div>
-            <h1>{article.content}</h1>
-            article.content
-            TODO
+            {article.content}
+            <br></br>
             visa en specifik post/article
         </div>
     )

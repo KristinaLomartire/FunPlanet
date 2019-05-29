@@ -4,8 +4,9 @@ import 'firebase/auth';
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Menu from './navigation/Menu';
-import PostListFire from './article/PostListFire'
 import SingleArticleFire from './singleArticle/SingleArticleFire'
+import SingleArticleComment from './singleArticle/singleArticleComment'
+import PostListFire from './article/PostListFire'
 import AddPost from './article/AddPost'
 import Temp from './admin/temp'
 import TagCloudFire from './tagCloud/tagCloudFire'
@@ -55,7 +56,6 @@ const App = () => {
 						<Route path="/temp/" component={Temp} />
 						<Route path="/search/" component={TagCloudFire} />
 					</div>
-                    <SingleArticleFire articleId="cU2EF9puG59oeedjB2nC" />
 				</main>
 			</Router>
 		);
