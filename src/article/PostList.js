@@ -7,7 +7,6 @@ const PostList = props => {
   if( props.list ){
     list = props.list.map(post => (
       <PostListItem key={post.id} post={post} userID={props.userID} />
-
     ));
   }
 
