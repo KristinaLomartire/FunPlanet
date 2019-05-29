@@ -5,16 +5,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import PostListFire from './article/PostListFire'
-<<<<<<< HEAD
 import SingleArticleFire from './singleArticle/SingleArticleFire'
 import AddPost from './article/AddPost'
-=======
-
-import SingleArticleFire from './singleArticle/SingleArticleFire'
-
-import AddPost from './article/AddPost'
-
->>>>>>> 1db355592b167be6af35fb2dd33b2f588c6a9f62
 import Temp from './admin/temp'
 import TagCloudFire from './tagCloud/tagCloudFire'
 
