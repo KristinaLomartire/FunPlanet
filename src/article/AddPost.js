@@ -16,7 +16,6 @@ class AddPost extends React.Component {
         displayName: this.props.displayName
 
     }
-    console.log(this.state);
   }
 
 
@@ -33,7 +32,13 @@ class AddPost extends React.Component {
   }
 
     handleClickAdd = p => {
-      let tagArray = this.state.tags.split(',')
+      let tagArray = this.state.tags.split(',');
+      tagArray = tagArray.map(tag => {
+        return tag.trim()
+      });
+      if(this.state.tags === ''){
+        return console.log('not a valid tag');
+      }
       let obj = {
         content: this.state.newPost,
         timestamp: firebase.firestore.FieldValue.serverTimestamp(),

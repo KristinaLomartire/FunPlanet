@@ -2,16 +2,17 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-import PostList from './PostList';
-import AddPost from './AddPost';
+import PostList from '../article/PostList';
 
-const PostListFire = props => {
+
+const TagCloudFire = props => {
 
   const [postData, setPostData] = useState(null);
+  const [tagSearch, setTagSearch] = useState('vel');
 
   useEffect(() => {
     const db = firebase.firestore();
-    const postCollection = db.collection('post').orderBy('timestamp', 'desc').limit(20);
+    const postCollection = db.collection('post').orderBy('timestamp', 'desc');
 
     let unsubscribe = postCollection.onSnapshot(snapshot => {
 
@@ -21,8 +22,10 @@ const PostListFire = props => {
           ...doc.data(),
           id: doc.id
         };
-        list.push(obj);
+        if( obj.tags.includes(tagSearch) )
+          list.push(obj);
       })
+
       setPostData(list);
 
     })
@@ -37,4 +40,4 @@ const PostListFire = props => {
   )
 }
 
-export default PostListFire;
+export default TagCloudFire;

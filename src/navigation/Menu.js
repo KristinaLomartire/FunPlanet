@@ -15,6 +15,9 @@ const Menu = ({logout, displayName}) => {
 					<Link to="/addpost/">Add new Post</Link>
 				</li>
 				<li>
+					<Link to="/search/">Find post</Link>
+				</li>
+				<li>
 					Welcome back {displayName}
 				</li>
 				<li>
@@ -24,6 +27,5 @@ const Menu = ({logout, displayName}) => {
 		</nav>
 	);
 }
-  
+
 export default Menu;
-  
