@@ -14,29 +14,35 @@ const SingleArticleFire = props => {
         let articleCollection = db.collection('post');
 
         const whenDone = doc => {
-            console.log('we are there', doc);
-            // här ska vi göra något med datan som kommer från databasen
-            setArticle(doc.id())
-        }
-        
-        const onError = () => {
-            console.log('Nae du');
-        }
+            if (doc.exists) {
+                console.log('this is what we got from firebaseDB', articleId);
+                // här ska vi göra något med datan som kommer från databasen
+                setArticle(doc.data());
+
+            } else
+                console.log('Nae du');
                 
-        articleCollection.doc(articleId)
-        .get().then(whenDone).catch(onError)
+        }
+            
+        articleCollection.doc(articleId).get().then(whenDone)
 
     }, [articleId]);
 
-    return (
-        <SingleArticle article={article}  />
-    )
+    if( article != null ) {
+        console.log('Detta är den unika artikeln som hämtas ut från ett just nu hårdkodat artID i App.js',"'",article.content,"'");
+        return (
+            <SingleArticle article={article}  />
+        )
+    
+    } else {
+        return (<div>Loading, plz w8</div>)
+    }
 
 }
 const SingleArticle = ({ article }) => {
     return (
         <div>
-            <h1>{article}</h1>
+            <h1>{article.content}</h1>
             article.content
             TODO
             visa en specifik post/article

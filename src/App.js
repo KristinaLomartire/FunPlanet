@@ -5,11 +5,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import PostListFire from './article/PostListFire'
-<<<<<<< HEAD
 import SingleArticleFire from './singleArticle/SingleArticleFire'
-=======
 import AddPost from './article/AddPost'
->>>>>>> 25786d7007ea77ef735639813621df9ba3dbe821
 import Temp from './admin/temp'
 
 const App = () => {
@@ -56,7 +53,7 @@ const App = () => {
 						} />
 						<Route path="/temp/" component={Temp} />
 					</div>
-                    <SingleArticleFire articleId="DdArkzdmu8Mbc8q3FBb1" />
+                    <SingleArticleFire articleId="cU2EF9puG59oeedjB2nC" />
 				</main>
 			</Router>
 		);
