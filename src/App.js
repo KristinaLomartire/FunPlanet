@@ -53,11 +53,20 @@ const App = () => {
 								userID={user.uid}
 								displayName={user.displayName}/>
 							} />
-							<Route path="/temp/:magicURL" component={Temp} />
-							<Route path="/search/:magicURL" component={TagCloudFire} />
+							<Route
+								path="/temp/:magicURL"
+								component={Temp}
+							/>
+							<Route
+								path="/search/:magicURL"
+								component={TagCloudFire}
+							/>
+							<Route
+								path="/article/:magicURL"
+								component={SingleArticleFire}
+							/>
 						</Switch>
 					</div>
-                    <SingleArticleFire articleId="cU2EF9puG59oeedjB2nC" />
 				</main>
 			</Router>
 		);
