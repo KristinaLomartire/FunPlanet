@@ -10,6 +10,7 @@ import Temp from './admin/temp'
 
 const App = () => {
 	const [user, setUser] = useState(null);
+	//const [userLevel, setUserLevel] = useState(null);
 
 	// This make you auto loggedin for easier testing, so remove for production version
 	firebase.auth().onAuthStateChanged(user => (user) ? setUser(user) : setUser(null));
@@ -42,7 +43,7 @@ const App = () => {
 						<Route path="/"
 							render={(props) => <PostListFire {...props}
 							userID={user.uid}
-							displayName={user.displayName}/>
+							/>
 						} exact/>
 						<Route path="/addpost/"
 							render={(props) => <AddPost {...props}

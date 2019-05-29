@@ -3,7 +3,6 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import PostList from './PostList';
-import AddPost from './AddPost';
 
 const PostListFire = props => {
 
@@ -32,7 +31,7 @@ const PostListFire = props => {
 
   return (
     <div>
-    <PostList list={postData} />
+    <PostList list={postData} userID={props.userID} />
     </div>
   )
 }

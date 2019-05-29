@@ -3,8 +3,9 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 
-const PostListItem = ({post}) => {
-
+const PostListItem = ({post, userID}) => {
+  console.log(userID);
+  
   
 
   const deletePost = () => {
@@ -20,7 +21,7 @@ const PostListItem = ({post}) => {
      maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
   }
   let deleteButton = (
-    <span className="delete" role="img" aria-label="delete" onClick={deletePost}>🗑️</span>
+    <span className="delete" role="img" aria-label="delete" onClick={deletePost}> 🗑️ </span>
   )
 
   return (
@@ -33,6 +34,7 @@ const PostListItem = ({post}) => {
         <span>
           <span className="userName">
           By {maybeName}
+          {(post.createdByUID === userID) ? deleteButton : null}
           </span>
           <span className="time">
             {maybeTimestamp}
@@ -44,7 +46,6 @@ const PostListItem = ({post}) => {
             {maybeTag}
         </span>
 
-        {deleteButton}
       </p>
     </li>
   )
