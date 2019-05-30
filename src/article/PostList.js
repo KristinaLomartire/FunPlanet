@@ -4,7 +4,7 @@ import PostListItem from './PostListItem';
 const PostList = props => {
   let list = null;
 
-  if( props.list ){
+  if (props.list) {
     list = props.list.map(post => (
       <PostListItem key={post.id} post={post} userID={props.userID} />
     ));

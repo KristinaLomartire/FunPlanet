@@ -12,27 +12,39 @@ const PostListItem = ({ post, userID }) => {
   let maybePost = post.content;
   let maybeTimestamp = 'Waiting for server...';
   let maybeName = post.createdBy;
+  let maybeHeader = post.header;
   let tagURL = "/search/"
-  let maybeTag = post.tags.map(tag => (
-    <Link key={tag} to={tagURL + tag}>{tag}, </Link>
-  ));
+  let articleURL = "/article/";
 
   if (post.timestamp) {
     maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
   }
-  let deleteButton = (
-    <span className="delete" role="img" aria-label="delete" onClick={deletePost}> 🗑️ </span>
-  )
+
   let maybePostCreateMarkup = () => {
+    let shorterMaybePost = maybePost.substring(0, 666) + '... <br />Read full article.'
     return {
-      __html: maybePost.replace(/(\r\n|\n|\r)/gm, '<br />')
+      __html: shorterMaybePost.replace(/(\r\n|\n|\r)/gm, '<br />')
     };
   };
 
+  let maybeTag = post.tags.map(tag => (
+    <Link key={tag} to={tagURL + tag}>{tag}, </Link>
+  ));
+
+  let deleteButton = (
+    <span className="delete" role="img" aria-label="delete" onClick={deletePost}> 🗑️ </span>
+  )
+
+  let shortTextLink = (
+    <Link to={articleURL + post.id}>
+      <p className="post" dangerouslySetInnerHTML={maybePostCreateMarkup()} />
+    </Link>
+  )
+
   return (
     <li className="postListItem">
-      <p className="post" dangerouslySetInnerHTML={maybePostCreateMarkup()} />
-
+      {(maybeHeader) ? <h1>{maybeHeader}</h1> : null}
+      {shortTextLink}
       <p className="information">
         <span>
           <span className="userName">
