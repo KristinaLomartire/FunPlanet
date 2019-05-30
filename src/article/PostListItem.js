@@ -12,8 +12,9 @@ const PostListItem = ({ post, userID }) => {
   let maybePost = post.content;
   let maybeTimestamp = 'Waiting for server...';
   let maybeName = post.createdBy;
+  let tagURL = "/search/"
   let maybeTag = post.tags.map(tag => (
-    <Link to="/search/{tag}">{tag}, </Link>
+    <Link key={tag} to={tagURL + tag}>{tag}, </Link>
   ));
 
   if (post.timestamp) {
