@@ -4,7 +4,7 @@ import 'firebase/firestore';
 import { Link } from "react-router-dom";
 
 
-const PostListItem = ({post, userID}) => {
+const PostListItem = ({ post, userID }) => {
   const deletePost = () => {
     firebase.firestore().collection('post').doc(post.id).delete()
   }
@@ -16,15 +16,15 @@ const PostListItem = ({post, userID}) => {
     <Link to="/search/{tag}">{tag}, </Link>
   ));
 
-  if( post.timestamp ) {
-     maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
+  if (post.timestamp) {
+    maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
   }
   let deleteButton = (
     <span className="delete" role="img" aria-label="delete" onClick={deletePost}> 🗑️ </span>
   )
   let maybePostCreateMarkup = () => {
     return {
-      __html: maybePost.replace(/(\r\n|\n|\r)/gm,  '<br />')
+      __html: maybePost.replace(/(\r\n|\n|\r)/gm, '<br />')
     };
   };
 
@@ -35,8 +35,8 @@ const PostListItem = ({post, userID}) => {
       <p className="information">
         <span>
           <span className="userName">
-          By {maybeName}
-          {(post.createdByUID === userID) ? deleteButton : null}
+            By {maybeName}
+            {(post.createdByUID === userID) ? deleteButton : null}
           </span>
           <span className="time">
             {maybeTimestamp}
@@ -44,8 +44,8 @@ const PostListItem = ({post, userID}) => {
         </span>
 
         <span className="tags">
-            Tags: <br />
-            {maybeTag}
+          Tags: <br />
+          {maybeTag}
         </span>
 
       </p>

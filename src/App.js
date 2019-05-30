@@ -5,7 +5,6 @@ import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import SingleArticleFire from './singleArticle/SingleArticleFire'
-import SingleArticleComment from './singleArticle/singleArticleComment'
 import PostListFire from './article/PostListFire'
 import AddPost from './article/AddPost'
 import Temp from './admin/temp'
@@ -46,21 +45,38 @@ const App = () => {
 						<Switch>
 							<Route path="/"
 								render={(props) => <PostListFire {...props}
-								userID={user.uid}
-								/>
-							} exact/>
+									userID={user.uid}
+								/>}
+								exact
+							/>
 							<Route path="/addpost/"
 								render={(props) => <AddPost {...props}
-								userID={user.uid}
-								displayName={user.displayName}/>
-							} />
+									userID={user.uid}
+									displayName={user.displayName}
+								/>}
+							/>
+							<Route
+								path="/temp/"
+								component={Temp}
+								exact
+							/>
 							<Route
 								path="/temp/:magicURL"
 								component={Temp}
 							/>
 							<Route
+								path="/search/"
+								component={TagCloudFire}
+								exact
+							/>
+							<Route
 								path="/search/:magicURL"
 								component={TagCloudFire}
+							/>
+							<Route
+								path="/article/"
+								component={SingleArticleFire}
+								exact
 							/>
 							<Route
 								path="/article/:magicURL"
