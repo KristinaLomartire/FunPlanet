@@ -37,6 +37,7 @@ nav ul li:last-child {
 .postList {
 	list-style: none;
 	margin: 1em 0;
+	padding: 0;
 }
 .postListItem h1 {
 	margin: 0;
