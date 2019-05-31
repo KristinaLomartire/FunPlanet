@@ -5,12 +5,11 @@ import 'firebase/firestore';
 import PostList from '../article/PostList';
 
 
-
 const TagCloudFire = props => {
 
   const [postData, setPostData] = useState(null);
   const [tagSearch, setTagSearch] = useState(props.match.params.magicURL);
-  console.log(tagSearch);
+
   useEffect(() => {
     const db = firebase.firestore();
     const postCollection = db.collection('post').orderBy('timestamp', 'desc');
@@ -26,17 +25,29 @@ const TagCloudFire = props => {
         if( obj.tags.includes(tagSearch) )
           list.push(obj);
       })
+      if( list.length > 0 && typeof list !== 'undefined'){
+        setPostData(list);
+      }else{
+        setPostData(null);
 
-      setPostData(list);
-
+      }
     })
-
     return unsubscribe;
-  }, [])
+  }, [tagSearch])
+
+  const filterChange = event =>{
+    setTagSearch(event.target.value)
+  }
+
 
   return (
     <div>
-    <PostList list={postData} />
+    <div>
+      <input type="text" value={tagSearch} onChange={filterChange} />
+    </div>
+
+    {(postData === null) ? <p>Din sökning gav inget resultat </p> : <PostList list={postData}  />}
+
     </div>
   )
 }

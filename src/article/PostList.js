@@ -1,5 +1,6 @@
 import React from 'react';
 import PostListItem from './PostListItem';
+//import Search from '../tagCloud/Search';
 
 const PostList = props => {
   let list = null;
