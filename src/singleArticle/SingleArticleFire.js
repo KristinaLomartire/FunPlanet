@@ -1,10 +1,11 @@
 import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import SingleArticleComment from './singleArticleComment';
 
 const SingleArticleFire = props => {
     // wee need props: (user id) and article id
-    const articleId = props.articleId;
+    const articleId = props.match.params.magicURL;
     const [article, setArticle] = useState(null);
     //const [commentData, setCommentData] = useState(null);
     //const [voteData, setVoteData] = useState(null);
@@ -17,7 +18,8 @@ const SingleArticleFire = props => {
             if (doc.exists) {
                 // console.log('this is what we got from firebaseDB', articleId);
                 // här ska vi göra något med datan som kommer från databasen
-                setArticle({...doc.data(), id: doc.id});
+                setArticle(doc.data());
+                // setArticle({...doc.data(), id: doc.id});
 
             } else
                 console.log('Något gick fel med hämtningen från DB');
@@ -42,9 +44,10 @@ const SingleArticleFire = props => {
 const SingleArticle = ({ article }) => {
     return (
         <div>
-            {article.content}
+            <p>{article.content}</p> 
             <br></br>
             visa en specifik post/article
+            <SingleArticleComment />
         </div>
     )
 }

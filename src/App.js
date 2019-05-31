@@ -64,7 +64,7 @@ const App = () => {
 							/>
 							<Route
 								path="/article/:magicURL"
-								component={SingleArticleFire}
+								component={SingleArticleFire} 
 							/>
 						</Switch>
 					</div>
