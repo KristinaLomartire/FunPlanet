@@ -44,9 +44,14 @@ const SingleArticleFire = props => {
 
 }
 const SingleArticle = ({ article }) => {
+    let articleContentCreateMarkup = () => {
+        return {
+            __html: article.content.replace(/(\r\n|\n|\r)/gm, '<br />')
+        };
+    };
     return (
         <div>
-            <p>{article.content}</p> 
+            <p className="post" dangerouslySetInnerHTML={articleContentCreateMarkup()} />
             <br></br>
             visa en specifik post/article
             <SingleArticleComment />
