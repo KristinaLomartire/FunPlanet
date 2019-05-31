@@ -19,12 +19,9 @@ const SingleArticleFire = props => {
             if (doc.exists) {
                 // console.log('this is what we got from firebaseDB', articleId);
                 // här ska vi göra något med datan som kommer från databasen
-<<<<<<< HEAD
-                setArticle(doc.data());
+                // setArticle(doc.data());
                 // setArticle({...doc.data(), id: doc.id});
-=======
                 setArticle({ ...doc.data(), id: doc.id });
->>>>>>> 98bba2a15c791bef7df863d991b26c6969f9e05c
 
             } else
                 console.log('Något gick fel med hämtningen från DB');
