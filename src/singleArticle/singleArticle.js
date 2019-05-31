@@ -1,10 +1,11 @@
 import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import SingleArticleFire from './SingleArticleFire';
 
-class Vote extends React.Component {
+class SingleArticle extends React.Component {
     
 }
 
 
-export default Vote;
+export default SingleArticle;

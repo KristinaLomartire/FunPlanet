@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 import SingleArticleComment from './singleArticleComment';
+// import SingleArticle from './singleArticle';
 
 const SingleArticleFire = props => {
     // wee need props: (user id) and article id
