@@ -5,11 +5,12 @@ import 'firebase/firestore';
 import PostList from '../article/PostList';
 
 
+
 const TagCloudFire = props => {
 
   const [postData, setPostData] = useState(null);
-  const [tagSearch, setTagSearch] = useState('vel');
-
+  const [tagSearch, setTagSearch] = useState(props.match.params.magicURL);
+  console.log(tagSearch);
   useEffect(() => {
     const db = firebase.firestore();
     const postCollection = db.collection('post').orderBy('timestamp', 'desc');
