@@ -1,8 +1,8 @@
 import React from 'react';
 const singleArticleComment = props => {
-    return (
-        <li>[articleId]</li>
-    )
+	return (
+		<ul>[articleId]</ul>
+	)
 }
 
 export default singleArticleComment;

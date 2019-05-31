@@ -74,13 +74,12 @@ const App = () => {
 								component={TagCloudFire}
 							/>
 							<Route
-								path="/article/"
-								component={SingleArticleFire}
-								exact
-							/>
-							<Route
 								path="/article/:magicURL"
-								component={SingleArticleFire} 
+								render={(props) =>
+									<SingleArticleFire
+										{...props}
+										userID={user.uid}
+									/>}
 							/>
 						</Switch>
 					</div>
