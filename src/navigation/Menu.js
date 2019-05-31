@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const Menu = ({logout, displayName}) => {
+const Menu = ({ logout, displayName }) => {
 	return (
 		<nav>
 			<ul>
@@ -16,9 +16,6 @@ const Menu = ({logout, displayName}) => {
 				</li>
 				<li>
 					<Link to="/search/">Find post</Link>
-				</li>
-				<li>
-					<Link to="/article/">SingleArticleFire</Link>
 				</li>
 				<li>
 					Welcome back {displayName}
