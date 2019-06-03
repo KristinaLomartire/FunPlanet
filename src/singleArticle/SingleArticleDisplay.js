@@ -1,6 +1,7 @@
 import React from 'react';
 import 'firebase/firestore';
-import SingleArticleWriteComment from './SingleArticleWriteComment'
+import SingleArticleWriteComment from './SingleArticleWriteComment';
+import SingleArticleVote from './SingleArticleVote';
 
 const SingleArticleDisplay = ({ article, userID, articleID }) => {
 	let articleContentCreateMarkup = () => {
@@ -11,6 +12,7 @@ const SingleArticleDisplay = ({ article, userID, articleID }) => {
 	return (
 		<div>
 			<p className="post" dangerouslySetInnerHTML={articleContentCreateMarkup()} />
+			<SingleArticleVote />
 			{/* här kommer alla kommentarer
             <SingleArticleDisplayComments />
             */}

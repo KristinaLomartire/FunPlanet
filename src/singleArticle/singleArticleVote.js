@@ -1,10 +1,20 @@
 import React from 'react';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
 
-class Vote extends React.Component {
-    
-}
+const SingleArticleVote = () => {
+	const clickedSupport = () => {
+		console.log('hello world');
+	}
+	return (
+		<p style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+			<span>0</span>
+			<span
+				style={{ fontSize: '2em', cursor: 'pointer' }}
+				onClick={clickedSupport}
+			>
+				❤
+			</span>
+		</p >
+	);
+};
 
-
-export default Vote;
+export default SingleArticleVote;
