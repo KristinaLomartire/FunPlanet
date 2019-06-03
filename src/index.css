@@ -262,3 +262,7 @@ nav ul {
     padding: 18px 50px;
     text-decoration: none;
 }
+.postListItem a:link {
+	text-align: left;
+	text-decoration: none;
+}
