@@ -1,14 +1,154 @@
 body {
 	margin: 0;
-	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+	background: #F0E4D4;
+   font-family: -apple-system, BlinkMacSystemFont, "Roboto";
 	-webkit-font-smoothing: antialiased;
 	-moz-osx-font-smoothing: grayscale;
 	font-size: 16px;
+	
 }
 
 .App {
 	margin: 0 auto;
 	max-width: 640px;
+	text-align:center;
+}
+ 
+
+
+  .second{
+	margin-top: 15px;
+	padding: 15px 82px;
+	background-color: #E6CEAE;
+	color: #000000;
+	font-size: 16px;
+	border: 1px solid #C6915C;
+	border-radius: 5px;
+	
+  }
+  .therd{
+	margin-top: 10px;
+	padding: 15px 82px;
+	background-color: #000000;
+	color: #C6915C;
+	font-size: 16px;
+	 letter-spacing: 1px;
+	 border-radius: 5px;
+	 
+  }
+  .Login{
+	margin: 0 auto;
+	max-width: 640px;
+	text-align:center;
+	margin-top: 50px;
+  }
+  p{ 
+	color:#000000;
+	margin-top: 10px;
+	letter-spacing: 0.5px;
+	text-decoration: initial;
+  }
+  .middletext{
+	  margin-top: 270px;
+  }
+  .logout{
+	  padding: 8px 20px;
+	  background-color: #000000;
+	  color: #C6915C;
+	  font-size: 11px;
+	  border-radius: 5px ;
+	  letter-spacing: 1px;
+	  margin-top:15px;
+  }
+  
+  .start{
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 15px;
+	letter-spacing: 1px;
+  }
+  .add{
+	text-decoration: none;
+	text-transform: uppercase;
+	font-size: 15px;
+	letter-spacing: 1px;
+  }
+  .tempo{
+	font-size: 15px;
+	text-decoration: none;
+
+  }
+  .start.add.tempo{
+	  width: 35px;
+	  height: 5px;
+	  background-color: #000000;
+	  margin: 6px 0;
+  }
+
+   .happy{
+	   font-size: 20px;
+	   font-style: italic;
+	
+   }
+
+   a {
+	color: #000;
+  }
+  
+
+  @media (min-width: 48em) {
+	
+	.header li a {
+	  padding: 20px 30px;
+	}
+	.header .menu {
+	  clear: none;
+	  float: right;
+	  max-height: none;
+	}
+	.header .menu-icon {
+	  display: none;
+	}
+  }
+  
+
+
+.hamburger {
+   display: none;	
+}
+
+@media (max-width: 768px){
+	
+	.hamburger {
+		display: block;
+	}
+	.hamburger > .hamburgerContainer {
+		width: 200px;
+		margin: 8px auto;
+		text-align: left;
+		margin-top: 38px;
+
+	}
+	.hamburger .line{
+		width: 50px;
+		height: 5px;
+		margin-bottom: 8px;
+		display: inline-block;
+		background-color:#C6915C;
+
+	}
+	.header { position: relative; }
+	.header > ul {
+		position: absolute;
+		display: none;
+		width: 100%;
+		padding: 0;
+		background-color: #C6915C;
+		margin-top:0px;
+	}
+	.header > .hamburger:hover + ul, .header > ul:hover {
+		display: block;
+	}
 }
 
 code {
@@ -16,40 +156,41 @@ code {
 }
 
 nav ul {
-	width: 100%;
+	margin-left: 270%;
 	list-style: none;
-	display: flex;
-	margin: 0;
-	padding: 0;
+	margin: auto;
 	align-items: stretch;
 	justify-content: space-between;
+	margin-top: 10px;
 }
 
 
-nav ul li {
-	margin: 0;
-	padding: 15px 15px 10px 0;
-}
-nav ul li:last-child {
-	text-align: right;
-	padding: 15px 0 10px 0;
-}
 .postList {
 	list-style: none;
 	margin: 1em 0;
+	margin-top: 0px;
+	letter-spacing: 0.5px;
 }
 .postListItem .post {
 	display: block;
-	margin: 1em 0 0.5em 0;
-	padding: 1em 0;
-	border-bottom: 1px solid rgb(110, 110, 110);
+	margin:auto;
+	border-bottom: 1px solid #C6915C;
+	background-color: #ffffff;
+	width: 200px;
+	letter-spacing: 0.5px;
+	padding: 18px 50px;
+	
 }
+
 .postListItem .information {
-	display: flex;
 	align-items: center;
 	justify-content: space-between;
-	margin: 0;
+	margin: 1em 0 0.5em 0;
 	padding: 0;
+	letter-spacing: 0.5px;
+	margin:auto;
+	font-size: 10px;
+
 }
 
 .postListItem .information .userName {
@@ -59,22 +200,50 @@ nav ul li:last-child {
 	cursor: pointer;
 }
 
-.addPost textarea, .addPost input, .addPost button  {
-	display: block;
-	width: 100%;
-	border: 1px solid #000;
-	border-radius: 5px;
-	margin: 0.5em 0;
-	padding: 1em;
-}
 .addPost textarea {
-	width: calc(100% - 0.25em);
-	height: 5em;
+	
+		width: 200px;
+		height: 28px;
+		padding-right: 50px;
+		margin-top:90px;
+		border: 0.5px solid #C6915C;
+		border-radius: 4px;
+		background-position: 10px 10px; 
+		background-repeat: no-repeat;
+		padding: 330px 60px 12px 40px;
+		resize:none;
+	    
+	
 }
-.addPost input {
-	height: 1.5em;
-}
+
 .addPost button {
-	display: inline-block;
-	width: 50%;
+	margin-top: 20px;
+	padding: 15px 125px;
+	background-color: #000000;
+	color: #a06309;
+	font-size: 20px;
+	border-radius: 5px;
+	letter-spacing: 1px;
+	
+
 }
+.addPost input{
+	margin-top: 20px;
+  color: black;
+  font-size: 9px;
+  border-radius: 4px;
+  letter-spacing: 1px;
+  padding: 18px 100px ;
+	 border: 0.5px solid #C6915C;
+	 
+}
+
+
+
+@media screen and (max-width: 400px) {
+	body {
+		background-color: hotpink;
+	}
+}
+
+

@@ -6,12 +6,13 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Menu from './navigation/Menu';
 import PostListFire from './article/PostListFire'
 import AddPost from './article/AddPost'
+import Logo from './navigation/Logo.png';
 import Temp from './admin/temp'
 
 const App = () => {
 	const [user, setUser] = useState(null);
 	//const [userLevel, setUserLevel] = useState(null);
-
+	
 	// This make you auto loggedin for easier testing, so remove for production version
 	firebase.auth().onAuthStateChanged(user => (user) ? setUser(user) : setUser(null));
 
@@ -57,15 +58,21 @@ const App = () => {
 		);
 	} else {
 		return (
+			
 			<div className="Login">
-				You need to login.
+			     <img src={Logo} alt="Logo" />
+				 <div className="middletext">
+				<p className="happy">We can live happily</p>
+                <p className="fear">Withhout fear</p>
+                <p className="jumble">Without any jumble</p>
 				<br />
-				<button onClick={loginWithGoogle}>Login with google.</button>
+				</div>
+				<button className="second"onClick={loginWithGoogle}>Login with google</button>
 				<br />
-				<button onClick={loginWithEmail}><strike>Login with email</strike></button>
+				<button className="therd"onClick={loginWithEmail}><strike>Login with email</strike></button>
 			</div>
 		);
 	}
-}
+} 
 
 export default App;

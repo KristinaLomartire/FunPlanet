@@ -57,10 +57,10 @@ class AddPost extends React.Component {
       <div className="addPost">
         <textarea type="text" value={this.state.newPost}
               onChange={this.handleChangeNewPost}
-              placeholder="Skriv ett inlägg" />
-        <input type="text" value={this.state.newTag}
+              placeholder="Skriv ett inlägg" /><br />
+        <input  type="text" value={this.state.newTag}
                 onChange={this.handleChangeNewTag}
-                placeholder="Skriv dina taggar"/>
+                placeholder="Skriv dina taggar"/><br/>
         <button onClick={this.handleClickAdd}> Posta </button>
 
       </div>
