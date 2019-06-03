@@ -52,7 +52,8 @@ class AddPost extends React.Component {
       tags: tagArray,
       header: this.state.newPostHeader,
       createdBy: this.state.displayName,
-      createdByUID: this.state.userID
+      createdByUID: this.state.userID,
+      loveCounter: 0
     };
     const collectionRef = firebase.firestore().collection('post');
     collectionRef.add(obj)

@@ -12,7 +12,7 @@ const SingleArticleDisplay = ({ article, userID, articleID }) => {
 	return (
 		<div>
 			<p className="post" dangerouslySetInnerHTML={articleContentCreateMarkup()} />
-			<SingleArticleVote />
+			<SingleArticleVote articleID={articleID}   loveCounter={article.loveCounter} />
 			{/* här kommer alla kommentarer
             <SingleArticleDisplayComments />
             */}

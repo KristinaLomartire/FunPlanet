@@ -6,9 +6,11 @@ import PostList from '../article/PostList';
 
 
 const TagCloudFire = props => {
-
   const [postData, setPostData] = useState(null);
   const [tagSearch, setTagSearch] = useState(props.match.params.magicURL);
+
+  if(tagSearch === undefined)
+    setTagSearch('');
 
   useEffect(() => {
     const db = firebase.firestore();

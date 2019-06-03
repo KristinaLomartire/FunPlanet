@@ -1,8 +1,8 @@
 import React from 'react';
-const singleArticleComment = props => {
+const SingleArticleComment = props => {
     return (
         <li>[articleId]</li>
     )
 }
 
-export default singleArticleComment;
+export default SingleArticleComment;

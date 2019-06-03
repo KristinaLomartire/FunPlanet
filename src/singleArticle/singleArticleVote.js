@@ -1,12 +1,20 @@
-import React from 'react';
+import React, {useState} from 'react';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
 
-const SingleArticleVote = () => {
+const SingleArticleVote = ({articleID, loveCounter}) => {
+	const [heartCounter, setHeartCounter] = useState(loveCounter);
+
 	const clickedSupport = () => {
-		console.log('hello world');
-	}
+		firebase.firestore().collection('post').doc(articleID).update(
+			{loveCounter: heartCounter + 1 }
+		);
+		setHeartCounter(heartCounter + 1);
+	};
+
 	return (
 		<p style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
-			<span>0</span>
+			<span>{ heartCounter }</span>
 			<span
 				style={{ fontSize: '2em', cursor: 'pointer' }}
 				onClick={clickedSupport}
