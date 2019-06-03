@@ -25,11 +25,11 @@ const Menu = ({ logout, displayName }) => {
 				<li>
 					<Link to="/search/">Find post</Link>
 				</li>
-				<li>
+				<li className="name">
 					Welcome back {displayName}
 				</li>
 				<li>
-					<button onClick={logout}>Logout</button>
+					<button className="logout" onClick={logout}>Logout</button>
 				</li>
 			
 			</ul>

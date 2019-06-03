@@ -93,14 +93,14 @@ const App = () => {
 			<div className="Login">
 			     <img src={Logo} alt="Logo" />
 				 <div className="middletext">
-				<p className="happy">We can live happily</p>
-                <p className="fear">Withhout fear</p>
-                <p className="jumble">Without any jumble</p>
-				<br />
+				<p className="happy">LIVET ÄR SOM EN BOK</p>
+                <p className="fear">du kan inte ändra de sidor<br/> som redan är skrivna</p>
+                <p className="jumble">men du kan börja <br/>på ett nytt kapitel</p>
+		
 				</div>
-				<button className="second"onClick={loginWithGoogle}>Login with google</button>
+				<button className="second"onClick={loginWithGoogle}>Login med google</button>
 				<br />
-				<button className="therd"onClick={loginWithEmail}><strike>Login with email</strike></button>
+				<button className="therd"onClick={loginWithEmail}><strike>Login med email</strike></button>
 			</div>
 		);
 	}
