@@ -1,10 +1,28 @@
-import React from 'react';
+import React, {useState} from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-class Vote extends React.Component {
-    
-}
+const SingleArticleVote = ({articleID, loveCounter}) => {
+	const [heartCounter, setHeartCounter] = useState(loveCounter);
 
+	const clickedSupport = () => {
+		firebase.firestore().collection('post').doc(articleID).update(
+			{loveCounter: heartCounter + 1 }
+		);
+		setHeartCounter(heartCounter + 1);
+	};
 
-export default Vote;
+	return (
+		<p style={{ display: 'flex', alignItems: 'center', justifyContent: 'flex-end' }}>
+			<span>{ heartCounter }</span>
+			<span
+				style={{ fontSize: '2em', cursor: 'pointer' }}
+				onClick={clickedSupport}
+			>
+				❤
+			</span>
+		</p >
+	);
+};
+
+export default SingleArticleVote;

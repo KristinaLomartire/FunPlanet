@@ -1,13 +1,15 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
 
 import Menu from './navigation/Menu';
+import SingleArticleFire from './singleArticle/SingleArticleFire'
 import PostListFire from './article/PostListFire'
 import AddPost from './article/AddPost'
 import Logo from './navigation/Logo.png';
 import Temp from './admin/temp'
+import TagCloudFire from './tagCloud/tagCloudFire'
 
 const App = () => {
 	const [user, setUser] = useState(null);
@@ -41,17 +43,46 @@ const App = () => {
 					<Menu logout={logout} displayName={user.displayName} />
 					<div className="MainDisplayArea">
 						{/* This is where the component will be rendered. */}
-						<Route path="/"
-							render={(props) => <PostListFire {...props}
-							userID={user.uid}
+						<Switch>
+							<Route path="/"
+								render={(props) => <PostListFire {...props}
+									userID={user.uid}
+								/>}
+								exact
 							/>
-						} exact/>
-						<Route path="/addpost/"
-							render={(props) => <AddPost {...props}
-							userID={user.uid}
-							displayName={user.displayName}/>
-						} />
-						<Route path="/temp/" component={Temp} />
+							<Route path="/addpost/"
+								render={(props) => <AddPost {...props}
+									userID={user.uid}
+									displayName={user.displayName}
+								/>}
+							/>
+							<Route
+								path="/temp/"
+								component={Temp}
+								exact
+							/>
+							<Route
+								path="/temp/:magicURL"
+								component={Temp}
+							/>
+							<Route
+								path="/search/"
+								component={TagCloudFire}
+								exact
+							/>
+							<Route
+								path="/search/:magicURL"
+								component={TagCloudFire}
+							/>
+							<Route
+								path="/article/:magicURL"
+								render={(props) =>
+									<SingleArticleFire
+										{...props}
+										userID={user.uid}
+									/>}
+							/>
+						</Switch>
 					</div>
 				</main>
 			</Router>

@@ -1,38 +1,42 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
+import SingleArticleDisplay from './SingleArticleDisplay'
 
-const SingleArticleFire = () => {
+const SingleArticleFire = props => {
+    const articleID = props.match.params.magicURL;
+    const [article, setArticle] = useState(null);
+    //const [commentData, setCommentData] = useState(null);
+    //const [voteData, setVoteData] = useState(null);
 
-    const [commentData, setCommentData, voteData, setVoteData] = useState(null);
+    useEffect(() => {
+        const db = firebase.firestore();
+        let articleCollection = db.collection('post');
 
-    const db = firebase.firestore();
-    let singleArticleCollection = db.collection('comment');
-    // let collectionOfData = []; 
-    // snapshot.forEach(doc =>{
-    //     let obj = {
-    //         ...doc.data(),
-    //         id: doc.id
-    //     };
-    //     collectionOfData.push(obj);
+        const whenDone = doc => {
+            if (doc.exists)
+                setArticle({ ...doc.data() });
+            else
+                console.log('Något gick fel med hämtningen från DB');
+        }
 
-    // })
-    
-    const whenDone = snapshot => {
-        console.log('we are there', singleArticleCollection)
+        articleCollection.doc(articleID).get().then(whenDone)
+
+    }, [articleID]);
+
+    if (article != null) {
+        return (
+            <SingleArticleDisplay
+                article={article}
+                userID={props.userID}
+                articleID={articleID}
+            />
+        )
+
+    } else {
+        return (<div>Loading, plz w8</div>)
     }
 
-    const onError = () => {
-        console.log('Nae du');
-    }
-    
-    singleArticleCollection.get().then(whenDone).catch(onError)
-
-    return (
-        
-        <div> detta funkar </div>
-    )
-    
 }
 
 export default SingleArticleFire;

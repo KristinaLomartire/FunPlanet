@@ -1,7 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 
-const Menu = ({logout, displayName}) => {
+const Menu = ({ logout, displayName }) => {
 	return (
 		<nav className="header" role="navigation">
 		
@@ -23,8 +23,13 @@ const Menu = ({logout, displayName}) => {
 					<Link className="add" to="/addpost/">Add new Post</Link>
 				</li><br/>
 				<li>
-					<div className="name">{displayName} </div>
-					<button className="logout"onClick={logout}>Logout</button>
+					<Link to="/search/">Find post</Link>
+				</li>
+				<li>
+					Welcome back {displayName}
+				</li>
+				<li>
+					<button onClick={logout}>Logout</button>
 				</li>
 			
 			</ul>
@@ -33,4 +38,3 @@ const Menu = ({logout, displayName}) => {
 }
 
 export default Menu;
-  
