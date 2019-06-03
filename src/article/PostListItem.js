@@ -21,7 +21,8 @@ const PostListItem = ({ post, userID }) => {
   }
 
   let maybePostCreateMarkup = () => {
-    let shorterMaybePost = maybePost.substring(0, 666) + '... <br />Read full article.'
+    let shorterMaybePost = maybePost.substring(0, 666) + '...<br /><br /><span style="text-decoration: underline">Read full article...</span>';
+
     return {
       __html: shorterMaybePost.replace(/(\r\n|\n|\r)/gm, '<br />')
     };

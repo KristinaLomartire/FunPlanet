@@ -248,4 +248,7 @@ nav ul {
 	}
 }
 
-
+.postListItem a:link {
+	text-align: left;
+	text-decoration: none;
+}
