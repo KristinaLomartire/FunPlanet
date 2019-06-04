@@ -3,7 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 
-const SingleArticleListAllComments = ({articleID}) => {
+const SingleArticleListAllComments = ({ articleID }) => {
     const [commentList, setCommentList] = useState(null);
 
     // useEffect(() => {
@@ -21,43 +21,45 @@ const SingleArticleListAllComments = ({articleID}) => {
     //     // console.log(articleID)
     //     console.log(commentList)
     // },);
-
     useEffect(() => {
-		const db = firebase.firestore();
-		const commentCollection = db.collection('comment');
-		commentCollection.onSnapshot(snapshot => {
+        const db = firebase.firestore();
+        const commentCollection = db.collection('comment');
+        commentCollection.onSnapshot(snapshot => {
             let list = [];
-			snapshot.forEach(doc => {
+            snapshot.forEach(doc => {
+                
                 let obj = {
                     ...doc.data(),
-					id: doc.id
-				};
-				list.push(obj);
-			})
+                    id: doc.id
+                };
+                list.push(obj);
+                // let listOfMatchedComments = commentList.filter(uniqeComments => uniqeComments.mainPostUID === articleID)
+            })
             setCommentList(list);
-		})
+        })
     }, [])
-    
+
 
     //1.Den printar inte heller ut de antal objekt som faktiskt finns i stateObjektet, dunno why
     //2.Loopen sorterar inte efter Timestamp 
     //2a.Loopen printar inte ut timestamp, vem som postade m.m.
-    //3.Bryt ut templaten för hur en enskild kommentar skall se ut till singleComment component
+    let jsxComments = null;
 
     if (commentList) {
         
         console.log('den hittar något')
-        // let listOfComments = commentList.map(comment => <li key={commentList.mainPostUID === articleID}>comment</li>)
+        // let listOfComments = commentList.map(comment => <li key={commentList.mainPostUID  ? : === articleID}>comment</li>)
         // return (
-            //     <ul>{listOfComments}</ul>
-            // )
-            let listOfMatchedComments = commentList.filter(uniqeComments => uniqeComments.mainPostUID === articleID)
-            console.log(listOfMatchedComments)
-        for(let i=0;i<=listOfMatchedComments; i++) {
-            console.log(listOfMatchedComments[i].comment)
-        }
+        //     <ul>{listOfComments}</ul>
+        // )
+        jsxComments = commentList.map((something, index) => (
+            <li key={something.id}>{something.comment}</li>
+        ));
+
         return (
-            <ul></ul>
+            <ul>
+                {jsxComments}
+            </ul>
         )
 
         // for(let i=0; i<commentList.Length;i++) {
@@ -76,29 +78,29 @@ const SingleArticleListAllComments = ({articleID}) => {
         //         return (`${commentList[i].comment}`)
         //     }
         // }   
-            
-        } else {
-            return (<div>Loading Comments, plz w8</div>)
-        }
-        
+
+    } else {
+        return (<div>Loading Comments, plz w8</div>)
     }
-    
-    export default SingleArticleListAllComments
+
+}
+
+export default SingleArticleListAllComments
     //************************************************** */
-    
+
     // const SingleArticleComment = ({articleID}) => {
         //     console.log(articleID)
         //     return (
             // 		<ul>articleID.comment</ul>
             // 	)
             // }
-            
-            
-            
+
+
+
             // Hämta information från ... ? PostID och dess kommentarer
             // Spara alla kommentarer i en lista
             // Lista ut dom efter timestamp
-    
+
     // commentCollection.onSnapshot(snapshot => {
     // console.log('We got some unicorns');
     // 	let list = [];
@@ -117,4 +119,3 @@ const SingleArticleListAllComments = ({articleID}) => {
 
 
 
-  
