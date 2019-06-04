@@ -9,27 +9,25 @@ const Menu = ({ logout, displayName }) => {
 				<div className="hamburgerContainer">
 					<span className="line"></span>  <br/>
 					<span className="line"></span>  <br/>
-					<span className="line"></span>  
+					<span className="sist" ></span>  
 			   </div>
 			</div>
 			<ul>
 				<li>
 					<Link className="start"to="/">Start</Link>
 				</li><br/>
+			
 				<li>
-					<Link className="tempo"to="/temp/">Temp</Link>
+					<Link className="add" to="/addpost/">Lägg till ny inlägg</Link>
 				</li><br/>
 				<li>
-					<Link className="add" to="/addpost/">Add new Post</Link>
-				</li><br/>
-				<li>
-					<Link to="/search/">Find post</Link>
+					<Link className="hitta"to="/search/">Hitta inlägg</Link>
+				</li>
+				<li className="name">
+					Välkommen  {displayName}
 				</li>
 				<li>
-					Welcome back {displayName}
-				</li>
-				<li>
-					<button onClick={logout}>Logout</button>
+					<button className="logout" onClick={logout}>Logout</button>
 				</li>
 			
 			</ul>

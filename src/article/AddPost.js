@@ -79,7 +79,7 @@ class AddPost extends React.Component {
         <input type="text" value={this.state.tags}
           onChange={this.handleChangeNewTag}
           placeholder="Skriv dina taggar" />
-        <button onClick={this.handleClickAdd}> Posta </button>
+        <button className="posta"onClick={this.handleClickAdd}> Posta </button>
 
       </div>
 
