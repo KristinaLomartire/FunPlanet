@@ -315,3 +315,39 @@ margin:0px;
  height: auto;
  margin-top: 50px;
 }
+
+.listCommentsWrap, ul {
+    padding: 0px 20px 0px 20px;
+    margin: 5px 5px;
+}
+
+.singleComment {
+    border-radius: 5px 5px;
+    background:lightgray;
+    list-style-type: none;
+    padding: 2px 2px;
+    margin: 20px 0px;
+}
+.singleComment *{
+    display:block;
+    display: flex;
+}
+
+.scUID {
+    margin: 5px 0px 0px 5px;
+    color: red;
+}
+
+.scComment {
+    margin: 25px 0px 25px 10px;
+    max-width: 321px;
+    height: auto;
+}
+
+.scDate {
+    margin: 0px 0px 0px 5px;
+}
+
+.scDateHM {
+    margin: 0px 0px 0px 5px;
+}

@@ -10,7 +10,9 @@ const SingleArticleListAllComments = ({ articleID }) => {
     useEffect(() => {
         const db = firebase.firestore();
         const commentCollection = db.collection('comment').orderBy('timestamp', 'asc');
-        commentCollection.onSnapshot(snapshot => {
+
+        let unsubscribe = commentCollection.onSnapshot(snapshot => {
+
             let list = [];
             snapshot.forEach(doc => {
                 let obj = {
@@ -23,6 +25,8 @@ const SingleArticleListAllComments = ({ articleID }) => {
             })
             setCommentList(list);
         })
+        
+        return unsubscribe;
     }, [])
     
     //Lista efter timestamp
@@ -36,7 +40,7 @@ const SingleArticleListAllComments = ({ articleID }) => {
         ));
 
         return (
-            <ul>
+            <ul className="listCommentsWrap">
                 {jsxComments}
             </ul>
         )   
