@@ -1,14 +1,17 @@
 import React from 'react';
-import firebase from 'firebase/app';
-import 'firebase/firestore';
-
-
 
 const SingleArticleComment = props => {
-    console.log(props.createdBy)
-    return (
-        <li></li>
-    )
+  
+    let dateWithHoursMin = props.singleData.timestamp.toDate();
+            
+        return (
+            <li>
+                {props.singleData.createdBy}
+                {props.singleData.comment}
+                {props.singleData.timestamp.toDate().toLocaleDateString()}
+                {dateWithHoursMin.toLocaleTimeString({hour: '2-digit', minute:'2-digit'})}
+            </li>
+        )
 }
 
 export default SingleArticleComment;

@@ -9,7 +9,7 @@ const SingleArticleListAllComments = ({ articleID }) => {
 
     useEffect(() => {
         const db = firebase.firestore();
-        const commentCollection = db.collection('comment');
+        const commentCollection = db.collection('comment').orderBy('timestamp', 'asc');
         commentCollection.onSnapshot(snapshot => {
             let list = [];
             snapshot.forEach(doc => {
@@ -24,27 +24,22 @@ const SingleArticleListAllComments = ({ articleID }) => {
             setCommentList(list);
         })
     }, [])
+    
+    //Lista efter timestamp
+    //db.collection('post').orderBy('timestamp', 'desc').limit(20)
 
-
-    //1.Den printar inte heller ut de antal objekt som faktiskt finns i stateObjektet, dunno why
-    //2.Loopen sorterar inte efter Timestamp 
-    //2a.Loopen printar inte ut timestamp, vem som postade m.m.
     let jsxComments = null;
-
+    
     if (commentList) {
-        
-        console.log(commentList)
-        jsxComments = commentList.map((something) => (
-            <li key={something.id}>{something.comment}</li>
+        jsxComments = commentList.map((singleData) => (
+            <SingleArticleComment key={singleData.id} singleData={singleData} />
         ));
 
         return (
             <ul>
                 {jsxComments}
-                {/* <SingleArticleComment /> */}
             </ul>
         )   
-
     } else {
         return (<div>Loading Comments, plz w8</div>)
     }
@@ -52,7 +47,3 @@ const SingleArticleListAllComments = ({ articleID }) => {
 }
 
 export default SingleArticleListAllComments
-
-
-
-
