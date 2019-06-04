@@ -45,7 +45,7 @@ const TagCloudFire = props => {
   return (
     <div>
     <div>
-      <input type="text" value={tagSearch} onChange={filterChange} />
+      <input className="inlägg" type="text" value={tagSearch} onChange={filterChange} />
     </div>
 
     {(postData === null) ? <p>Din sökning gav inget resultat </p> : <PostList list={postData}  />}

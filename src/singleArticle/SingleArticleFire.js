@@ -6,8 +6,6 @@ import SingleArticleDisplay from './SingleArticleDisplay'
 const SingleArticleFire = props => {
     const articleID = props.match.params.magicURL;
     const [article, setArticle] = useState(null);
-    //const [commentData, setCommentData] = useState(null);
-    //const [voteData, setVoteData] = useState(null);
 
     useEffect(() => {
         const db = firebase.firestore();

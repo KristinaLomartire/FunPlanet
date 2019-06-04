@@ -2,6 +2,7 @@ import React from 'react';
 import 'firebase/firestore';
 import SingleArticleWriteComment from './SingleArticleWriteComment';
 import SingleArticleVote from './SingleArticleVote';
+import SingleArticleListAllComments from './SingleArticleListAllComments'
 
 const SingleArticleDisplay = ({ article, userID, articleID }) => {
 	let articleContentCreateMarkup = () => {
@@ -13,9 +14,9 @@ const SingleArticleDisplay = ({ article, userID, articleID }) => {
 		<div>
 			<p className="post" dangerouslySetInnerHTML={articleContentCreateMarkup()} />
 			<SingleArticleVote articleID={articleID} loveCounter={article.loveCounter} />
-			{/* här kommer alla kommentarer
-            <SingleArticleDisplayComments />
-            */}
+            <SingleArticleListAllComments 
+            articleID={articleID}  
+            />
 			<SingleArticleWriteComment
 				userID={userID}
 				articleID={articleID}

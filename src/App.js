@@ -7,7 +7,8 @@ import Menu from './navigation/Menu';
 import SingleArticleFire from './singleArticle/SingleArticleFire'
 import PostListFire from './article/PostListFire'
 import AddPost from './article/AddPost'
-import Logo from './navigation/Logo.png';
+
+import shareshare from './images/shareshare.png';
 import Temp from './admin/temp'
 import TagCloudFire from './tagCloud/tagCloudFire'
 
@@ -91,7 +92,8 @@ const App = () => {
 		return (
 			
 			<div className="Login">
-			     <img src={Logo} alt="Logo" />
+			     
+				 <img src={shareshare} alt="shareshare" />
 				 <div className="middletext">
 				<p className="happy">LIVET ÄR SOM EN BOK</p>
                 <p className="fear">du kan inte ändra de sidor<br/> som redan är skrivna</p>
