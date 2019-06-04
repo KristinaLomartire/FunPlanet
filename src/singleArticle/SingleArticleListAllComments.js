@@ -42,16 +42,30 @@ const SingleArticleListAllComments = ({articleID}) => {
     //1.Den printar inte heller ut de antal objekt som faktiskt finns i stateObjektet, dunno why
     //2.Loopen sorterar inte efter Timestamp 
     //2a.Loopen printar inte ut timestamp, vem som postade m.m.
+    //3.Bryt ut templaten för hur en enskild kommentar skall se ut till singleComment component
 
     if (commentList) {
-
+        
+        console.log('den hittar något')
         // let listOfComments = commentList.map(comment => <li key={commentList.mainPostUID === articleID}>comment</li>)
         // return (
-        //     <ul>{listOfComments}</ul>
-        // )
+            //     <ul>{listOfComments}</ul>
+            // )
+            let listOfMatchedComments = commentList.filter(uniqeComments => uniqeComments.mainPostUID === articleID)
+            console.log(listOfMatchedComments)
+        for(let i=0;i<=listOfMatchedComments; i++) {
+            console.log(listOfMatchedComments[i].comment)
+        }
         return (
-            commentList[0].comment
+            <ul></ul>
         )
+
+        // for(let i=0; i<commentList.Length;i++) {
+        //     console.log(commentList[i].comment);
+        //     return (
+        //         commentList[4].comment
+        //         )
+        //     }
 
         // console.log(commentList)
         // console.log(commentList[0].mainPostUID)
