@@ -28,6 +28,7 @@ const SingleArticleFire = props => {
                 article={article}
                 userID={props.userID}
                 articleID={articleID}
+                displayName={props.displayName}
             />
         )
 

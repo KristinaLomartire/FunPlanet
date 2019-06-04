@@ -79,7 +79,8 @@ const App = () => {
 								render={(props) =>
 									<SingleArticleFire
 										{...props}
-										userID={user.uid}
+                                        userID={user.uid}
+                                        displayName={user.displayName}
 									/>}
 							/>
 						</Switch>

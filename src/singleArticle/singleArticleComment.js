@@ -1,7 +1,13 @@
 import React from 'react';
+import firebase from 'firebase/app';
+import 'firebase/firestore';
+
+
+
 const SingleArticleComment = props => {
+    console.log(props.createdBy)
     return (
-        <li>[articleId]</li>
+        <li></li>
     )
 }
 
