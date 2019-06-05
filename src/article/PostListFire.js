@@ -7,19 +7,19 @@ import PostList from './PostList';
 const PostListFire = props => {
 
   const [postData, setPostData] = useState(null);
-  const [selectedTag, setSeletedTag] = useState('');
+  const [selectedTag] = useState('');
 
   useEffect(() => {
     const db = firebase.firestore();
     let postCollection;
-    if( selectedTag === ''){
-      postCollection =  db.collection('post').orderBy('timestamp', 'desc').limit(20);
+    if (selectedTag === '') {
+      postCollection = db.collection('post').orderBy('timestamp', 'desc').limit(20);
 
     }
-    else{
+    else {
       postCollection = db.collection('post')
-      .where('tags', 'array-contains', selectedTag)
-      .orderBy('timestamp', 'desc').limit(20);
+        .where('tags', 'array-contains', selectedTag)
+        .orderBy('timestamp', 'desc').limit(20);
 
     }
 
@@ -38,11 +38,11 @@ const PostListFire = props => {
     })
 
     return unsubscribe;
-  }, [])
+  }, [selectedTag])
 
   return (
     <div>
-    <PostList list={postData} userID={props.userID} />
+      <PostList list={postData} userID={props.userID} />
     </div>
   )
 }
