@@ -58,7 +58,7 @@ const PostListItem = ({ post, userID }) => {
         </span>
 
         <span className="tags">
-          Tags: <br />
+          Tags:
           {maybeTag}
         </span>
 
