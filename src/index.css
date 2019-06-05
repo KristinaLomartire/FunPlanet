@@ -193,11 +193,13 @@ code {
 nav ul li:hover{
 	
 		background-color: #c7a37e;
-		color:#ffffff;
 		padding: 8px 6px;
 }
 nav button:hover {
 	cursor: pointer;
+}
+nav ul li:last-child:hover, nav ul li:nth-child(6):hover {
+	background: none;
 }
 nav ul {
 	
