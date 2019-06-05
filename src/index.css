@@ -190,11 +190,14 @@ h1{
 code {
 	font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
 }
-ul li:hover{
+nav ul li:hover{
 	
 		background-color: #c7a37e;
 		color:#ffffff;
 		padding: 8px 6px;
+}
+nav button:hover {
+	cursor: pointer;
 }
 nav ul {
 	
