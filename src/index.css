@@ -223,11 +223,10 @@ nav ul {
 	margin:auto;
 	border-bottom: 1px solid #C6915C;
 	background-color: #ffffff;
-	width: 200px;
+	width: 260px;
 	letter-spacing: 0.5px;
-	padding: 18px 50px;
+	padding: 18px 20px;
 	text-decoration: none;
-	
 }
 
 .postListItem .information {
@@ -299,10 +298,11 @@ nav ul {
 	display: block;
     margin: auto;
     border-bottom: 1px solid #b78f65;
-    width: 200px;
+    width: 260px;
     letter-spacing: 0.5px;
-    padding: 18px 50px;
-    text-decoration: none;
+    padding: 18px 20px;
+		text-decoration: none;
+		text-align: left;
 }
 .postListItem a:link {
 	text-align: left;
