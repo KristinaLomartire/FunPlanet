@@ -27,7 +27,7 @@ const SingleArticleListAllComments = ({ articleID }) => {
         })
 
         return unsubscribe;
-    }, [])
+    }, [articleID])
 
     //Lista efter timestamp
     //db.collection('post').orderBy('timestamp', 'desc').limit(20)
