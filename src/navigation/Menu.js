@@ -23,13 +23,13 @@ const Menu = ({ logout, displayName }) => {
 				<li>
 					<Link className="hitta" to="/search/">Hitta inlägg</Link>
 				</li>
+				<li className="name">
+					Välkommen  {displayName}
+				</li>
+				<li>
+					<button className="logout" onClick={logout}>Logout</button>
+				</li>
 			</ul>
-			<div className="name">
-				Välkommen  {displayName}
-			</div>
-			<div>
-				<button className="logout" onClick={logout}>Logout</button>
-			</div>
 		</nav>
 	);
 }
