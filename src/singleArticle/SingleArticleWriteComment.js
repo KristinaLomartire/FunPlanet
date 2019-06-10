@@ -11,19 +11,19 @@ class SingleArticleWriteComment extends React.Component {
 			comment: '',
 		}
 	}
-    
+
 	handleChangeComment = c => {
-        this.setState({
-            comment: c.target.value,
+		this.setState({
+			comment: c.target.value,
 		});
 	}
 	handleSaveComment = () => {
-        let obj = {
+		let obj = {
 			comment: this.state.comment,
 			timestamp: firebase.firestore.FieldValue.serverTimestamp(),
 			createdByUID: this.state.userID,
-            mainPostUID: this.props.articleID,
-            createdBy: this.props.displayName
+			mainPostUID: this.props.articleID,
+			createdBy: this.props.displayName
 		};
 		const collectionRef = firebase.firestore().collection('comment');
 		collectionRef.add(obj)

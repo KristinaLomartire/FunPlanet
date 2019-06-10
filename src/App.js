@@ -1,16 +1,9 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
-import Menu from './navigation/Menu';
-import SingleArticleFire from './singleArticle/SingleArticleFire'
-import PostListFire from './article/PostListFire'
-import AddPost from './article/AddPost'
-
-import shareshare from './images/shareshare.png';
-import Temp from './admin/temp'
-import TagCloudFire from './tagCloud/tagCloudFire'
+import Login from './shared/Login';
+import Routing from './shared/Routing';
 
 const App = () => {
 	const [user, setUser] = useState(null);
@@ -38,79 +31,9 @@ const App = () => {
 	const logout = () => firebase.auth().signOut().then(() => setUser(null));
 
 	if (user) {
-		return (
-			<Router>
-				<main className="App">
-					<div className="logo">
-						<Link to="/">
-							<i className="fas fa-people-carry" /> Share
-						</Link>
-					</div>
-					<Menu logout={logout} displayName={user.displayName} />
-					<div className="MainDisplayArea">
-						{/* This is where the component will be rendered. */}
-						<Switch>
-							<Route path="/"
-								render={(props) => <PostListFire {...props}
-									userID={user.uid}
-								/>}
-								exact
-							/>
-							<Route path="/addpost/"
-								render={(props) => <AddPost {...props}
-									userID={user.uid}
-									displayName={user.displayName}
-								/>}
-							/>
-							<Route
-								path="/temp/"
-								component={Temp}
-								exact
-							/>
-							<Route
-								path="/temp/:magicURL"
-								component={Temp}
-							/>
-							<Route
-								path="/search/"
-								component={TagCloudFire}
-								exact
-							/>
-							<Route
-								path="/search/:magicURL"
-								component={TagCloudFire}
-							/>
-							<Route
-								path="/article/:magicURL"
-								render={(props) =>
-									<SingleArticleFire
-										{...props}
-										userID={user.uid}
-										displayName={user.displayName}
-									/>}
-							/>
-						</Switch>
-					</div>
-				</main>
-			</Router>
-		);
+		return (<Routing user={user} logout={logout} />);
 	} else {
-		return (
-
-			<div className="Login">
-
-				<img src={shareshare} alt="shareshare" />
-				<div className="middletext">
-					<p className="happy">LIVET ÄR SOM EN BOK</p>
-					<p className="fear">du kan inte ändra de sidor<br /> som redan är skrivna</p>
-					<p className="jumble">men du kan börja <br />på ett nytt kapitel</p>
-
-				</div>
-				<button className="second" onClick={loginWithGoogle}>Login med google</button>
-				<br />
-				<button className="therd" onClick={loginWithEmail}><strike>Login med email</strike></button>
-			</div>
-		);
+		return (<Login loginWithGoogle={loginWithGoogle} loginWithEmail={loginWithEmail} />)
 	}
 }
 

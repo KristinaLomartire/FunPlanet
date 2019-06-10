@@ -9,22 +9,22 @@ const SingleArticleDisplay = ({ article, userID, articleID, displayName }) => {
 		return {
 			__html: article.content.replace(/(\r\n|\n|\r)/gm, '<br />')
 		};
-    };
-    
+	};
+
 	return (
 		<div>
 			<p className="post" dangerouslySetInnerHTML={articleContentCreateMarkup()} />
 			<SingleArticleVote articleID={articleID} loveCounter={article.loveCounter} />
-            <SingleArticleListAllComments 
-            articleID={articleID}  
-            />
+			<SingleArticleListAllComments
+				articleID={articleID}
+			/>
 			<SingleArticleWriteComment
 				userID={userID}
-                articleID={articleID}
-                displayName={displayName}
+				articleID={articleID}
+				displayName={displayName}
 			/>
 		</div>
-    )
+	)
 }
 
 export default SingleArticleDisplay;
