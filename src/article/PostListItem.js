@@ -33,7 +33,7 @@ const PostListItem = ({ post, userID }) => {
   ));
 
   let deleteButton = (
-    <span className="delete" role="img" aria-label="delete" onClick={deletePost}> <i class="far fa-trash-alt" /> </span>
+    <span className="delete" role="img" aria-label="delete" onClick={deletePost}> <i className="far fa-trash-alt" /> </span>
   )
 
   let shortTextLink = (

@@ -7,28 +7,28 @@ const Menu = ({ logout, displayName }) => {
 			<ul>
 				<li>
 					<Link className="start" to="/">
-						<i class="fas fa-home" />
+						<i className="fas fa-home" />
 						Start
 					</Link>
 				</li>
 
 				<li>
 					<Link className="add" to="/addpost/">
-						<i class="fas fa-pencil-alt" />
+						<i className="fas fa-pencil-alt" />
 						Nytt inlägg
 					</Link>
 				</li>
 
 				<li>
 					<Link className="hitta" to="/search/">
-						<i class="fas fa-search" />
+						<i className="fas fa-search" />
 						Sök
 					</Link>
 				</li>
 
 				<li>
 					<span className="logout" onClick={logout}>
-						<i class="fas fa-sign-out-alt" />
+						<i className="fas fa-sign-out-alt" />
 						Logout
 					</span>
 				</li>

@@ -1,8 +1,7 @@
 body {
 	margin: 0;
-	background: #F0E4D4;
-	 font-family: -apple-system, BlinkMacSystemFont, "Roboto";
-	-moz-osx-font-smoothing: grayscale;
+	background: #f0f0f0;
+    font-family: 'Roboto', sans-serif;
 	font-size: 18px;
 	line-height: 1.5;
 }
@@ -36,13 +35,13 @@ nav ul {
 nav ul li {
 	text-align: center;
 }
-.fas {
+nav .fas {
 	display: block;
 	font-size: 30px;
 }
 nav ul li a, .logout {
 	cursor: pointer;
-	font-weight: 600;
+	font-weight: 700;
 }
 nav ul li a, .logout, .userName, .time {
 	text-decoration: none;
@@ -67,6 +66,7 @@ nav ul li a, .logout, .userName, .time {
 	margin: 0;
 	font-size: 2em;
 	text-align: center;
+	font-weight: 400;
 }
 .postListItem p {
 	margin: 0 0 1em 0;

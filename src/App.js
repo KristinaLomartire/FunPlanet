@@ -42,7 +42,7 @@ const App = () => {
 			<Router>
 				<main className="App">
 					<div className="logo">
-						Share
+						<i className="fas fa-people-carry" /> Share
 					</div>
 					<Menu logout={logout} displayName={user.displayName} />
 					<div className="MainDisplayArea">
