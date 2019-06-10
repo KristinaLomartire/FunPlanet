@@ -16,6 +16,10 @@ body {
 	font-size: 3em;
 	text-align: center;
 }
+.logo a {
+	color: #000;
+	text-decoration: none;
+}
 
 nav {
 	position: fixed;
@@ -75,7 +79,9 @@ nav ul li a, .logout, .userName, .time {
 	text-decoration: none;
 	color: #000;
 }
-
+.tags {
+	font-size: 0.8em;
+}
 .delete {
 	cursor: pointer;
 	color: red;

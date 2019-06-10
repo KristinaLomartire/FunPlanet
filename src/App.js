@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/auth';
-import { BrowserRouter as Router, Route, Switch } from "react-router-dom";
+import { BrowserRouter as Router, Route, Switch, Link } from "react-router-dom";
 
 import Menu from './navigation/Menu';
 import SingleArticleFire from './singleArticle/SingleArticleFire'
@@ -42,7 +42,9 @@ const App = () => {
 			<Router>
 				<main className="App">
 					<div className="logo">
-						<i className="fas fa-people-carry" /> Share
+						<Link to="/">
+							<i className="fas fa-people-carry" /> Share
+						</Link>
 					</div>
 					<Menu logout={logout} displayName={user.displayName} />
 					<div className="MainDisplayArea">
