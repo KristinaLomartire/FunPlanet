@@ -21,7 +21,7 @@ const PostListItem = ({ post, userID }) => {
   }
 
   let maybePostCreateMarkup = () => {
-    let shorterMaybePost = maybePost.substring(0, 666) + '...<br /><br /><span style="text-decoration: underline">Read full article...</span>';
+    let shorterMaybePost = maybePost.substring(0, 100) + '...<br /><span style="text-decoration: underline">Läs mer..</span>';
 
     return {
       __html: shorterMaybePost.replace(/(\r\n|\n|\r)/gm, '<br />')
@@ -33,7 +33,7 @@ const PostListItem = ({ post, userID }) => {
   ));
 
   let deleteButton = (
-    <span className="delete" role="img" aria-label="delete" onClick={deletePost}> 🗑️ </span>
+    <span className="delete" role="img" aria-label="delete" onClick={deletePost}> <i class="far fa-trash-alt" /> </span>
   )
 
   let shortTextLink = (
@@ -45,23 +45,18 @@ const PostListItem = ({ post, userID }) => {
   return (
     <li className="postListItem">
       {(maybeHeader) ? <h1>{maybeHeader}</h1> : null}
+      <p>
+        <span className="time">
+          {maybeTimestamp}
+        </span>
+        <span className="userName">
+          {maybeName}
+          {(post.createdByUID === userID) ? deleteButton : null}
+        </span>
+      </p>
       {shortTextLink}
-      <p className="information">
-        <span>
-          <span className="userName">
-            By {maybeName}
-            {(post.createdByUID === userID) ? deleteButton : null}
-          </span>
-          <span className="time">
-            {maybeTimestamp}
-          </span>
-        </span>
-
-        <span className="tags">
-          Tags:
-          {maybeTag}
-        </span>
-
+      <p className="tags">
+        Sökord: {maybeTag}
       </p>
     </li>
   )

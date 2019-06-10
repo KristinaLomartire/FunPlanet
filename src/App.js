@@ -15,7 +15,7 @@ import TagCloudFire from './tagCloud/tagCloudFire'
 const App = () => {
 	const [user, setUser] = useState(null);
 	//const [userLevel, setUserLevel] = useState(null);
-	
+
 	// This make you auto loggedin for easier testing, so remove for production version
 	firebase.auth().onAuthStateChanged(user => (user) ? setUser(user) : setUser(null));
 
@@ -41,6 +41,9 @@ const App = () => {
 		return (
 			<Router>
 				<main className="App">
+					<div className="logo">
+						Share
+					</div>
 					<Menu logout={logout} displayName={user.displayName} />
 					<div className="MainDisplayArea">
 						{/* This is where the component will be rendered. */}
@@ -80,8 +83,8 @@ const App = () => {
 								render={(props) =>
 									<SingleArticleFire
 										{...props}
-                                        userID={user.uid}
-                                        displayName={user.displayName}
+										userID={user.uid}
+										displayName={user.displayName}
 									/>}
 							/>
 						</Switch>
@@ -91,22 +94,22 @@ const App = () => {
 		);
 	} else {
 		return (
-			
+
 			<div className="Login">
-			     
-				 <img src={shareshare} alt="shareshare" />
-				 <div className="middletext">
-				<p className="happy">LIVET ÄR SOM EN BOK</p>
-                <p className="fear">du kan inte ändra de sidor<br/> som redan är skrivna</p>
-                <p className="jumble">men du kan börja <br/>på ett nytt kapitel</p>
-		
+
+				<img src={shareshare} alt="shareshare" />
+				<div className="middletext">
+					<p className="happy">LIVET ÄR SOM EN BOK</p>
+					<p className="fear">du kan inte ändra de sidor<br /> som redan är skrivna</p>
+					<p className="jumble">men du kan börja <br />på ett nytt kapitel</p>
+
 				</div>
-				<button className="second"onClick={loginWithGoogle}>Login med google</button>
+				<button className="second" onClick={loginWithGoogle}>Login med google</button>
 				<br />
-				<button className="therd"onClick={loginWithEmail}><strike>Login med email</strike></button>
+				<button className="therd" onClick={loginWithEmail}><strike>Login med email</strike></button>
 			</div>
 		);
 	}
-} 
+}
 
 export default App;
