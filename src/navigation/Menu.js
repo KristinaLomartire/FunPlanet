@@ -1,42 +1,42 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { NavLink } from 'react-router-dom';
 
-const Menu = ({ logout, displayName }) => {
+const Menu = ({ logout }) => {
 	return (
 		<nav className="header" role="navigation">
 			<ul>
 				<li>
-					<Link className="start" to="/">
+					<NavLink to="/" className="start" exact>
 						<i className="fas fa-home" />
 						Start
-					</Link>
+					</NavLink>
 				</li>
 				<li>
-					<Link className="add" to="/write/">
+					<NavLink to="/write/" className="add" >
 						<i className="fas fa-pencil-alt" />
 						Nytt inlägg
-					</Link>
+					</NavLink>
 				</li>
 				<li>
-					<Link className="hitta" to="#">
+					<NavLink to="#" className="PM" style={{ 'color': '#f1f1f1', 'filter': 'blur(1px)' }} >
 						<i className="fas fa-envelope" />
-						Meddelande
-					</Link>
+						<strike>Meddelande</strike>
+					</NavLink>
 				</li>
 				<li>
-					<Link className="hitta" to="/search/">
+					<NavLink to="/search/" className="search" >
 						<i className="fas fa-search" />
 						Sök
-					</Link>
+					</NavLink>
 				</li>
 				<li>
-					<span className="logout" onClick={logout}>
+					<span onClick={logout} className="logout" >
 						<i className="fas fa-sign-out-alt" />
 						Logout
 					</span>
 				</li>
 			</ul>
-		</nav>
+		</nav >
 	);
 }
 

@@ -19,7 +19,6 @@ const Routing = ({ user, logout }) => {
 
 			<Menu
 				logout={logout}
-				displayName={user.displayName}
 			/>
 
 			<div className="MainDisplayArea">
@@ -39,6 +38,7 @@ const Routing = ({ user, logout }) => {
 								displayName={user.displayName}
 							/>
 						}
+						exact
 					/>
 					<Route
 						path="/search/"

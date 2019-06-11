@@ -53,6 +53,9 @@ nav ul li a, .logout, .userName, .time {
 	font-family: unset;
 	color: #000;
 }
+nav .active {
+	color: #7080a0;
+}
 .userName {
 	float: right;
 }
@@ -66,10 +69,9 @@ nav ul li a, .logout, .userName, .time {
 	padding: 20px 10px 0 10px;
 	margin: 0 10px;
 }
-.SingleArticleSummary h1 {
+.SingleArticleSummary h1, .FullArticle h1 {
 	margin: 0;
 	font-size: 2em;
-	text-align: center;
 	font-weight: 400;
 }
 .SingleArticleSummary p {

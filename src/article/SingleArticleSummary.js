@@ -44,7 +44,9 @@ const SingleArticleSummary = ({ post, userID }) => {
 
 	return (
 		<li className="SingleArticleSummary">
-			{(maybeHeader) ? <h1>{maybeHeader}</h1> : null}
+			<Link to={articleURL + post.id}>
+				{(maybeHeader) ? <h1>{maybeHeader}</h1> : null}
+			</Link>
 			<p>
 				<span className="time">
 					{maybeTimestamp}

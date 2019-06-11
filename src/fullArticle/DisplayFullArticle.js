@@ -28,7 +28,16 @@ const DisplayFullArticle = props => {
 
 	if (article != null) {
 		return (
-			<div>
+			<div className="FullArticle">
+				<h1>
+					{article.header}
+				</h1>
+				<span className="time">
+					{article.timestamp.toDate().toLocaleDateString()}
+				</span>
+				<span className="userName">
+					{article.createdBy}
+				</span>
 				<p
 					className="post"
 					dangerouslySetInnerHTML={articleContentCreateMarkup()}
