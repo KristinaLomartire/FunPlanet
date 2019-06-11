@@ -2,7 +2,7 @@ import React from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-class SingleArticleWriteComment extends React.Component {
+class WriteComment extends React.Component {
 	constructor(props) {
 		super(props);
 		this.state = {
@@ -43,4 +43,4 @@ class SingleArticleWriteComment extends React.Component {
 	}
 }
 
-export default SingleArticleWriteComment;
+export default WriteComment;

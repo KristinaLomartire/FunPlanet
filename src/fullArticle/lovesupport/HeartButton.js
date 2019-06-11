@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import firebase from 'firebase/app';
 import 'firebase/firestore';
 
-const SingleArticleVote = ({ articleID, loveCounter }) => {
+const HeartButton = ({ articleID, loveCounter }) => {
 	const [heartCounter, setHeartCounter] = useState(loveCounter);
 
 	const clickedSupport = () => {
@@ -30,4 +30,4 @@ const SingleArticleVote = ({ articleID, loveCounter }) => {
 	);
 };
 
-export default SingleArticleVote;
+export default HeartButton;

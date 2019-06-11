@@ -3,17 +3,14 @@ import firebase from 'firebase/app';
 import 'firebase/auth';
 
 import Login from './shared/Login';
-import Routing from './shared/Routing';
+import Routing from './navigation/Routing';
 
 const App = () => {
 	const [user, setUser] = useState(null);
-	//const [userLevel, setUserLevel] = useState(null);
 
-	// This make you auto loggedin for easier testing, so remove for production version
 	firebase.auth().onAuthStateChanged(user => (user) ? setUser(user) : setUser(null));
 
 	const loginWithGoogle = () => {
-		// change firebase.auth.Auth.Persistence.LOCAL to NONE for production version
 		firebase.auth().setPersistence(firebase.auth.Auth.Persistence.LOCAL)
 			.then(() => {
 				let provider = new firebase.auth.GoogleAuthProvider();
@@ -31,7 +28,11 @@ const App = () => {
 	const logout = () => firebase.auth().signOut().then(() => setUser(null));
 
 	if (user) {
-		return (<Routing user={user} logout={logout} />);
+		return (
+			<main className="App">
+				<Routing user={user} logout={logout} />
+			</main>
+		);
 	} else {
 		return (<Login loginWithGoogle={loginWithGoogle} loginWithEmail={loginWithEmail} />)
 	}

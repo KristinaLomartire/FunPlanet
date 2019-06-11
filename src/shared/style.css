@@ -56,26 +56,26 @@ nav ul li a, .logout, .userName, .time {
 .userName {
 	float: right;
 }
-.postList {
+.articleList {
 	list-style: none;
 	margin: 0;
 	padding: 0;
 }
-.postListItem {
+.SingleArticleSummary {
 	border-bottom: 1px solid #000;
 	padding: 20px 10px 0 10px;
 	margin: 0 10px;
 }
-.postListItem h1 {
+.SingleArticleSummary h1 {
 	margin: 0;
 	font-size: 2em;
 	text-align: center;
 	font-weight: 400;
 }
-.postListItem p {
+.SingleArticleSummary p {
 	margin: 0 0 1em 0;
 }
-.postListItem a {
+.SingleArticleSummary a {
 	text-decoration: none;
 	color: #000;
 }
