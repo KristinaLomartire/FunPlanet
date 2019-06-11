@@ -2,7 +2,7 @@ import React from 'react';
 import { BrowserRouter as Router, Route, Switch, Link } from 'react-router-dom';
 
 import Menu from './Menu';
-import SingleArticleFire from '../fullArticle/SingleArticleFire';
+import DisplayFullArticle from '../fullArticle/DisplayFullArticle';
 import DisplayArticlesSummarys from '../article/DisplayArticlesSummarys';
 import DisplayNewArticleForm from '../createArticle/DisplayNewArticleForm';
 import DisplayTagSearch from '../search/DisplayTagSearch';
@@ -52,7 +52,7 @@ const Routing = ({ user, logout }) => {
 					<Route
 						path="/article/:magicURL"
 						render={(props) =>
-							<SingleArticleFire
+							<DisplayFullArticle
 								{...props}
 								userID={user.uid}
 								displayName={user.displayName}

@@ -4,7 +4,6 @@ import 'firebase/firestore';
 
 import SingleArticleSummary from '../article/SingleArticleSummary';
 
-
 const DisplayTagSearch = props => {
 	const [postData, setPostData] = useState(null);
 	const [tagSearch, setTagSearch] = useState(props.match.params.magicURL);
@@ -12,6 +11,8 @@ const DisplayTagSearch = props => {
 	if (tagSearch === undefined)
 		setTagSearch('');
 
+
+	/* This way make to many request to database. Bad use of api need fixing */
 	useEffect(() => {
 		const db = firebase.firestore();
 		const postCollection = db.collection('post').orderBy('timestamp', 'desc');
