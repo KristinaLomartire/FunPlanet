@@ -34,7 +34,11 @@ const App = () => {
 			</main>
 		);
 	} else {
-		return (<Login loginWithGoogle={loginWithGoogle} loginWithEmail={loginWithEmail} />)
+		return (
+			<main className="App">
+				<Login loginWithGoogle={loginWithGoogle} loginWithEmail={loginWithEmail} />
+			</main>
+		);
 	}
 }
 
