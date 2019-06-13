@@ -11,11 +11,10 @@ const DisplayTagSearch = props => {
 	if (tagSearch === undefined)
 		setTagSearch('');
 
-
-	/* This way make to many request to database. Bad use of api need fixing */
 	useEffect(() => {
 		const db = firebase.firestore();
-		const postCollection = db.collection('post').orderBy('timestamp', 'desc');
+		let postCollection;
+		postCollection = db.collection('post').orderBy('timestamp', 'desc').limit(20);
 
 		let unsubscribe = postCollection.onSnapshot(snapshot => {
 			let list = [];
@@ -24,46 +23,39 @@ const DisplayTagSearch = props => {
 					...doc.data(),
 					id: doc.id
 				};
-				if (obj.tags.includes(tagSearch))
-					list.push(obj);
-			});
-			if (list.length > 0 && typeof list !== 'undefined') {
-				setPostData(list);
-			} else {
-				setPostData(null);
-			}
+				list.push(obj);
+			})
+			setPostData(list);
 		})
 		return unsubscribe;
-	}, [tagSearch])
+	}, []);
 
 	const filterChange = event => setTagSearch(event.target.value);
 
-	let ArticleSummaryList = null;
+	let ArticleSummaryList = [];
 	if (postData) {
-		ArticleSummaryList = postData.map(post => (
-			<SingleArticleSummary
-				key={post.id}
-				post={post}
-				userID={props.userID}
-			/>
-		));
+		postData.forEach(post => {
+			post.tags.forEach(tag => {
+				if (tag.toUpperCase() === tagSearch.toUpperCase()) {
+					ArticleSummaryList.push(
+						<SingleArticleSummary
+							key={post.id}
+							post={post}
+							userID={props.userID}
+						/>
+					);
+				}
+			});
+		});
 	}
 
 	return (
 		<div>
 			<div>
-				<input className="inlägg" type="text" value={tagSearch} onChange={filterChange} />
+				<input className="search" type="text" value={tagSearch} onChange={filterChange} />
 			</div>
 
-			{
-				(postData === null) ?
-					(tagSearch === '') ?
-						<p>Skriv tag för sökning</p>
-						:
-						<p>Din sökning gav inget resultat </p>
-					:
-					<ul className="articleList">{ArticleSummaryList}</ul>
-			}
+			<ul className="articleList">{ArticleSummaryList}</ul>
 		</div>
 	);
 };

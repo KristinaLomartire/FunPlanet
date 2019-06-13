@@ -17,9 +17,7 @@ const Routing = ({ user, logout }) => {
 				</Link>
 			</div>
 
-			<Menu
-				logout={logout}
-			/>
+			<Menu logout={logout} />
 
 			<div className="MainDisplayArea">
 				<Switch>
