@@ -10,14 +10,14 @@ const SingleArticleSummary = ({ post, userID }) => {
 	}
 
 	let maybePost = post.content;
-	let maybeTimestamp = 'Waiting for server...';
+	let dateWithHoursMin = 'Waiting for server...';
 	let maybeName = post.createdBy;
 	let maybeHeader = post.header;
 	let tagURL = "/search/"
 	let articleURL = "/article/";
 
 	if (post.timestamp) {
-		maybeTimestamp = post.timestamp.toDate().toLocaleDateString();
+		dateWithHoursMin = post.timestamp.toDate();
 	}
 
 	let maybePostCreateMarkup = () => {
@@ -49,7 +49,10 @@ const SingleArticleSummary = ({ post, userID }) => {
 			</Link>
 			<p>
 				<span className="time">
-					{maybeTimestamp}
+					{dateWithHoursMin.toLocaleDateString() + ' - '}
+				</span>
+				<span className="time">
+					{dateWithHoursMin.toLocaleTimeString({ hour: '2-digit', minute: '2-digit' })}
 				</span>
 				<span className="userName">
 					{maybeName}

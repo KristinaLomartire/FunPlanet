@@ -32,11 +32,10 @@ class WriteComment extends React.Component {
 	}
 	render() {
 		return (
-			<div className="addPost" >
+			<div className="createComment" >
 				<textarea type="text" value={this.state.comment}
 					onChange={this.handleChangeComment}
 					placeholder="Skriv din kommentar" />
-				<br />
 				<button onClick={this.handleSaveComment}> Posta Kommentar </button>
 			</div>
 		);

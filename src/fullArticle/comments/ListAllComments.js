@@ -40,9 +40,12 @@ const ListAllComments = ({ articleID }) => {
 		));
 
 		return (
-			<ul className="listCommentsWrap">
-				{jsxComments}
-			</ul>
+			<div>
+				<h2>Kommentarer</h2>
+				<ul className="listCommentsWrap">
+					{jsxComments}
+				</ul>
+			</div>
 		)
 	} else {
 		return (<div>Loading Comments, plz w8</div>)

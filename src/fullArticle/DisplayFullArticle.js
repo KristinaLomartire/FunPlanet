@@ -9,6 +9,7 @@ import ListAllComments from './comments/ListAllComments'
 const DisplayFullArticle = props => {
 	const articleID = props.match.params.magicURL;
 	const [article, setArticle] = useState(null);
+	let dateWithHoursMin = 'Waiting for server...';
 
 	useEffect(() => {
 		const db = firebase.firestore();
@@ -27,13 +28,20 @@ const DisplayFullArticle = props => {
 	};
 
 	if (article != null) {
+		if (article.timestamp) {
+			dateWithHoursMin = article.timestamp.toDate();
+		}
+
 		return (
 			<div className="FullArticle">
 				<h1>
 					{article.header}
 				</h1>
 				<span className="time">
-					{article.timestamp.toDate().toLocaleDateString()}
+					{dateWithHoursMin.toLocaleDateString() + ' - '}
+				</span>
+				<span className="time">
+					{dateWithHoursMin.toLocaleTimeString({ hour: '2-digit', minute: '2-digit' })}
 				</span>
 				<span className="userName">
 					{article.createdBy}

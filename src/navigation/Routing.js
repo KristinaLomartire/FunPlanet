@@ -46,6 +46,7 @@ const Routing = ({ user, logout }) => {
 					<Route
 						path="/search/:magicURL"
 						component={DisplayTagSearch}
+						exact
 					/>
 					<Route
 						path="/article/:magicURL"

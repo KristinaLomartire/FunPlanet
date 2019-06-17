@@ -2,7 +2,7 @@ import React from 'react';
 import { TagCloud } from "react-tagcloud";
 import { Link } from "react-router-dom";
 
-const TagCloudDisplay = ({ posts, setSearch }) => {
+const TagCloudDisplay = ({ posts }) => {
 	let tagCounter = [];
 	const baseURL = /search/;
 	if (posts) {
@@ -27,10 +27,7 @@ const TagCloudDisplay = ({ posts, setSearch }) => {
 				<Link
 					to={baseURL + tag.value}
 					style={{ color }}
-					onClick={(tag) => {
-						console.log("inside onClick:", tag.value);
-						//setSearch(tag.value);
-					}}>
+				>
 					{tag.value}
 				</Link>
 			</span>
