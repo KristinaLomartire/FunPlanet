@@ -67,7 +67,7 @@ class DisplayNewArticleForm extends React.Component {
 				<input type="text"
 					value={this.state.tags}
 					onChange={this.handleChangeNewTag}
-					placeholder="Skriv dina taggar"
+					placeholder="Skriv dina sökord"
 				/>
 				<button className="posta" onClick={this.handleClickAdd}>
 					Posta inlägg
