@@ -13,10 +13,20 @@ const SingleComment = props => {
 		let dateWithHoursMin = props.singleData.timestamp.toDate();
 		return (
 			<li className="singleComment">
-				<span className="scUID"> {props.singleData.createdBy} </span>
-				<span className="scComment"> {props.singleData.comment}  </span>
-				<span className="scDate"> {props.singleData.timestamp.toDate().toLocaleDateString()}  </span>
-				<span className="scDateHM"> {dateWithHoursMin.toLocaleTimeString({ hour: '2-digit', minute: '2-digit' })} </span>
+				<p>
+					<span className="time">
+						{dateWithHoursMin.toLocaleDateString() + ' - '}
+					</span>
+					<span className="time">
+						{dateWithHoursMin.toLocaleTimeString({ hour: '2-digit', minute: '2-digit' })}
+					</span>
+					<span className="userName">
+						{props.singleData.createdBy}
+					</span>
+				</p>
+				<p className="scComment">
+					{props.singleData.comment}
+				</p>
 			</li>
 		)
 	}

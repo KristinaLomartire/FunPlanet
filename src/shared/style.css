@@ -23,7 +23,6 @@ body {
 }
 .logo a {
 	color: #000;
-	text-decoration: none;
 }
 
 nav {
@@ -78,10 +77,15 @@ h1 {
 	font-size: 1.5em;
 	font-weight: 400;
 }
+h2 {
+	margin: 0;
+	font-size: 1.2em;
+	font-weight: 400;
+}
 .SingleArticleSummary p {
 	margin: 0 0 1em 0;
 }
-.SingleArticleSummary a {
+a {
 	text-decoration: none;
 	color: #000;
 }
@@ -101,7 +105,12 @@ h1 {
 .CreateArticle h1 {
 	margin-bottom: 0.5em;
 }
-.CreateArticle input, .CreateArticle textarea, .CreateArticle button, .search input {
+.CreateArticle input,
+.CreateArticle textarea,
+.CreateArticle button,
+.search input,
+.createComment textarea,
+.createComment button {
 	padding: 0.5em;
 	border: 1px solid #000;
 	border-radius: 8px;
@@ -109,18 +118,25 @@ h1 {
 	font-family: 'Roboto', sans-serif;
 	display: block;
 }
-.CreateArticle input, .CreateArticle textarea, .search input {
+.CreateArticle input,
+.CreateArticle textarea,
+.search input,
+.createComment textarea {
 	width: 90%;
 	width: calc(100% - 1em - 2px);
 	margin: 0 0 1.5em 0;
 }
-.CreateArticle textarea {
+.CreateArticle textarea, .createComment textarea {
 	width: 90%;
 	width: calc(100% - 1em - 2px);
 	resize: none;
 	height: 12em;
 }
-.CreateArticle button {
+.createComment textarea {
+	height: 8em;
+	margin-top: 3em;
+}
+.CreateArticle button, .createComment button {
 	cursor: pointer;
 	float: right;
 	clear: both;
@@ -128,9 +144,20 @@ h1 {
 .CreateArticle button:hover {
 	background: #c0c0c0;
 }
-.search {
+.tag-cloud {
 	text-align: center;
 }
 .search input {
 	margin-top: 0.5em;
+}
+
+.listCommentsWrap {
+	list-style: none;
+	margin: 0;
+	padding: 0;
+}
+.listCommentsWrap li {
+	margin: 0 0 1em 0;
+	padding: 0;
+	border-top: 1px dashed rgba(0, 0, 0, 0.247);
 }
