@@ -1,6 +1,7 @@
 body {
 	margin: 0;
 	background: #f0f0f0;
+	color: rgb(46, 46, 46);
     font-family: 'Roboto', sans-serif;
 	font-size: 18px;
 	line-height: 1.5;
@@ -16,8 +17,9 @@ body {
 	padding-bottom: 6em;
 }
 .logo {
-	font-size: 3em;
+	font-size: 2.5em;
 	text-align: center;
+	margin-bottom: 0.5em;
 }
 .logo a {
 	color: #000;
@@ -34,7 +36,7 @@ nav {
 }
 nav ul {
 	list-style: none;
-	padding: 0.5em 0;
+	padding: 0.4em 0 0.2em 0;
 	margin: 0;
 	display: flex;
 	justify-content: space-around;
@@ -44,15 +46,14 @@ nav ul li {
 }
 nav .fas {
 	display: block;
-	font-size: 30px;
+	font-size: 20px;
 }
 nav ul li a, .logout {
 	cursor: pointer;
-	font-weight: 700;
 }
 nav ul li a, .logout, .userName, .time {
 	text-decoration: none;
-	font-size: 14px;
+	font-size: 12px;
 	font-family: unset;
 	color: #000;
 }
@@ -69,12 +70,12 @@ nav .active {
 }
 .SingleArticleSummary {
 	border-bottom: 1px solid #000;
-	padding: 20px 10px 0 10px;
-	margin: 0 10px;
-}
-.SingleArticleSummary h1, .FullArticle h1 {
+	padding: 0;
 	margin: 0;
-	font-size: 2em;
+}
+h1 {
+	margin: 0;
+	font-size: 1.5em;
 	font-weight: 400;
 }
 .SingleArticleSummary p {
@@ -91,4 +92,45 @@ nav .active {
 	cursor: pointer;
 	color: red;
 	padding-left: 10px;
+}
+
+.MainDisplayArea {
+	margin: 0 0.5em;
+	padding: 0;
+}
+.CreateArticle h1 {
+	margin-bottom: 0.5em;
+}
+.CreateArticle input, .CreateArticle textarea, .CreateArticle button, .search input {
+	padding: 0.5em;
+	border: 1px solid #000;
+	border-radius: 8px;
+	font-size: 18px;
+	font-family: 'Roboto', sans-serif;
+	display: block;
+}
+.CreateArticle input, .CreateArticle textarea, .search input {
+	width: 90%;
+	width: calc(100% - 1em - 2px);
+	margin: 0 0 1.5em 0;
+}
+.CreateArticle textarea {
+	width: 90%;
+	width: calc(100% - 1em - 2px);
+	resize: none;
+	height: 12em;
+}
+.CreateArticle button {
+	cursor: pointer;
+	float: right;
+	clear: both;
+}
+.CreateArticle button:hover {
+	background: #c0c0c0;
+}
+.search {
+	text-align: center;
+}
+.search input {
+	margin-top: 0.5em;
 }

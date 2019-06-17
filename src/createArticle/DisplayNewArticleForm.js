@@ -54,6 +54,7 @@ class DisplayNewArticleForm extends React.Component {
 	render() {
 		return (
 			<div className="CreateArticle">
+				<h1>Skriv ett nytt inlägg</h1>
 				<input type="text"
 					value={this.state.newPostHeader}
 					onChange={this.handleChangeNewPostTitle}

@@ -9,8 +9,14 @@ const DisplayTagSearch = props => {
 	const [postData, setPostData] = useState(null);
 	const [tagSearch, setTagSearch] = useState(props.match.params.magicURL);
 
-	if (tagSearch === undefined)
-		setTagSearch('');
+	if (props.match.params.magicURL === undefined) {
+		if (tagSearch === undefined)
+			setTagSearch('');
+	} else {
+		// this create problem that we cannot write new search since it will overwrite tagSearch with url data.
+		if (tagSearch !== props.match.params.magicURL)
+			setTagSearch(props.match.params.magicURL);
+	}
 
 	useEffect(() => {
 		const db = firebase.firestore();
@@ -51,10 +57,15 @@ const DisplayTagSearch = props => {
 	}
 
 	return (
-		<div>
+		<div className="search">
 			<TagCloudDisplay posts={postData} />
 			<div>
-				<input className="search" type="text" value={tagSearch} onChange={filterChange} />
+				<input
+					type="text"
+					value={tagSearch}
+					onChange={filterChange}
+					placeholder="Angiv ditt sökord!"
+				/>
 			</div>
 
 			<ul className="articleList">{ArticleSummaryList}</ul>
