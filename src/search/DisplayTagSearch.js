@@ -3,6 +3,7 @@ import firebase from 'firebase/app';
 import 'firebase/firestore';
 
 import SingleArticleSummary from '../article/SingleArticleSummary';
+import TagCloudDisplay from '../tagCloud/TagCloudDisplay'
 
 const DisplayTagSearch = props => {
 	const [postData, setPostData] = useState(null);
@@ -51,6 +52,7 @@ const DisplayTagSearch = props => {
 
 	return (
 		<div>
+			<TagCloudDisplay posts={postData} />
 			<div>
 				<input className="search" type="text" value={tagSearch} onChange={filterChange} />
 			</div>

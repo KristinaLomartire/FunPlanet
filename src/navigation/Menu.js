@@ -18,7 +18,7 @@ const Menu = ({ logout }) => {
 					</NavLink>
 				</li>
 				<li>
-					<NavLink to="#" className="PM" style={{ 'color': '#f1f1f1', 'filter': 'blur(1px)' }} >
+					<NavLink to="#" className="PM" style={{ 'filter': 'blur(1px)' }} >
 						<i className="fas fa-envelope" />
 						<strike>Meddelande</strike>
 					</NavLink>
